@@ -16,7 +16,6 @@ const Nav = () => {
       {[
         ['Home', '/'],
         ['Projects', '/projects'],
-        ['Blog', '/blog'],
       ].map(([title, path]) => (
         <Link
           key={title}

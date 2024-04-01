@@ -1,6 +1,7 @@
 name: upload site to s3
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main

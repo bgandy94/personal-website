@@ -10,6 +10,7 @@ export class PersonalWebsiteStack extends cdk.Stack {
       versioned: true,
       bucketName: 'brandon.gandy.me',
       publicReadAccess: true,
+      autoDeleteObjects: true,
       websiteIndexDocument: 'index.html',
       blockPublicAccess: {
         blockPublicAcls: false,

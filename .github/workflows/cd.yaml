@@ -10,9 +10,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-node@v4
       - name: Checkout
         uses: actions/checkout@v1
-
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -30,7 +30,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: 'us-east-1'
       - name: install deps
-        run: yarn
+        run: yarn install --immutable
       - name: Build static site files
         run: yarn build
 

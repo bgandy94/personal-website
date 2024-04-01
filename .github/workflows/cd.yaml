@@ -30,7 +30,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: 'us-east-1'
       - name: install deps
-        run: yarn install --immutable
+        run: yarn install --frozen-lockfile
       - name: Build static site files
         run: yarn build
 

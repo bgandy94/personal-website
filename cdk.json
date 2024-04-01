@@ -1,5 +1,5 @@
 {
-  "app": "yarn tsx ./src/infra/index.ts",
+  "app": "npx tsx ./src/infra/index.ts",
   "context": {
     "@aws-cdk/aws-lambda:recognizeLayerVersion": true,
     "@aws-cdk/core:checkSecretUsage": true,

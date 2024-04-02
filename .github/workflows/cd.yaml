@@ -10,16 +10,24 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            infra:
+              - 'src/infra/**'
       - uses: actions/setup-node@v4
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Configure AWS Credentials
+      - if: steps.filter.outputs.infra == 'true'
+        name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
-      - name: cdk deploy
+      - if: steps.filter.outputs.infra == 'true'
+        name: cdk deploy
         uses: youyo/aws-cdk-github-actions@v2
         with:
           cdk_subcommand: 'deploy'
@@ -36,3 +44,5 @@ jobs:
 
       - name: Deploy static site to S3 bucket
         run: aws s3 sync ./out/ s3://brandon.gandy.me --delete
+      - name: invalidate cf cache
+        run: aws cloudfront create-invalidation --distribution-id $(aws cloudfront list-distributions --output json | jq -r '.DistributionList.Items[0].Id') --paths '/*'

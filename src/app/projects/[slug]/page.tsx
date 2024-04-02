@@ -32,7 +32,7 @@ export default function Projects({
     <div className="flex flex-col items-center text-center">
       <h1 className="text-3xl mb-4">{title}</h1>
       <h2 className="text-lg mb-4 italic text-gray-300">
-        {`${getFormattedDate(start)} -- ${end ? getFormattedDate(end) : 'current'}`}
+        {`${getFormattedDate(start)} - ${end ? getFormattedDate(end) : 'current'}`}
       </h2>
       <hr className="text-white w-full my-4" />
       {component}

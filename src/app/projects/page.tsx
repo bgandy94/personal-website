@@ -9,7 +9,7 @@ export default function Projects({ params }: { params: { slug: string } }) {
       <h1 className="text-3xl mb-4">Projects</h1>
       <ul className="list-inside">
         {projects.map((project) => (
-          <li>
+          <li key={project.slug}>
             <span className="text-sm font-bold">
               {getFormattedDate(project.dates.start)}
             </span>

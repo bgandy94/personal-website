@@ -1,3 +1,4 @@
+import { getFormattedDate } from '@/src/lib/date'
 import { Project, projects } from '@/src/lib/projects'
 import { notFound } from 'next/navigation'
 import React from 'react'
@@ -8,11 +9,6 @@ export async function generateStaticParams() {
   return projects.map((project) => ({
     slug: project.slug,
   }))
-}
-
-const getFormattedDate = (date: Date) => {
-  const month = date.getMonth() + 1
-  return `${date.getFullYear()}-${month < 10 ? `0${month}` : month}-${date.getDate() + 1}`
 }
 
 export default function Projects({

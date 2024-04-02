@@ -62,7 +62,7 @@ export default function RootLayout({
       <body className={inter.className + ' bg-background text-white'}>
         <Nav />
 
-        <main className="h-screen flex items-center flex-col color-primary px-8 md:px-[20rem] mt-8">
+        <main className="h-screen flex items-center flex-col color-primary px-4 md:px-[20rem] py-4">
           {children}
         </main>
       </body>

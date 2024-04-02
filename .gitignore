@@ -38,3 +38,6 @@ next-env.d.ts
 # CDK asset staging directory
 .cdk.staging
 cdk.out
+
+
+DistributionList.Items.[0].Id

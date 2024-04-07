@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 export type Project = {
@@ -18,7 +19,7 @@ export const projects: Project[] = [
         <h2 className="text-2xl mb-2" id="how-it-started">
           How it started
         </h2>
-        <p className="text-lg mb-4">
+        <p className=" mb-4">
           I&apos;ve been rentals now since February of 2018, and one of the
           things I always dread every year is taxes. Before ever getting in to
           real estate I adopted a technology called{' '}
@@ -39,7 +40,7 @@ export const projects: Project[] = [
           operating funds and personal funds were all out of the same bank
           account, which was obviously also a terrible setup.
         </p>
-        <p className="text-lg mb-4">
+        <p className=" mb-4">
           So mint was pretty much our source of truth and where the process of
           our books would begin. Then, as we found time, we&apos;d use
           mint&apos;s transaction search functionality to look for all of our
@@ -53,7 +54,7 @@ export const projects: Project[] = [
           fact that we kept buying more rentals, which meant more data to
           import!
         </p>
-        <p className="text-lg mb-4">
+        <p className=" mb-4">
           While this original system had it&apos;s obvious flaws and relied very
           heavily on my pure will to complete this unfortunate task, it did work
           for us for several years before I finally decided enough was enough.
@@ -64,12 +65,24 @@ export const projects: Project[] = [
         <h2 className="text-2xl mb-2" id="how-it-started">
           How it is today
         </h2>
-        <p className="text-lg mb-4">
+        <p className="mb-4">
           While this original system had it&apos;s obvious flaws and relied very
           heavily on my pure will to complete this unfortunate task, it did work
           for us for several years before I finally decided enough was enough.
           Being in software, automating manual tasks is always something
-          I&apos;m conscious of.
+          I&apos;m conscious of. I began actually building out an export application on top of <Link href="https://www.electronjs.org/" className='underline' target="_blank">Electron</Link>&nbsp;
+          to basically scrape the data from our mint account into a CSV that I could then use to in Google sheets to generate P&L reports with pivot tables.
+          Then, come roughly October or November of 2023, Mint announces it&apos;s shutting down and transferring those who want to over to Credit Karma. This was obviously 
+          quite annoying because I just built a tool to integrate with Mint and now it feels like I&apos;m back to the drawing board. Upon a bit of exploration, Kelley and I 
+          decided to give <Link href="https://www.monarchmoney.com/" className='underline' target="_blank">Monarch Money</Link> a try. We fairly quickly
+          began to enjoy the features of Monarch, including their mint migration tool, which made tranferring our data out of mint and into Monarch super easy.
+          We pretty quickly devised a new system of tags that now allows us to do a lot of things with the data we&apos;re pulling.
+          <ul className='list-disc'>
+            <li>Generate on-demand P&L statements by property.</li>
+            <li>Filter out renovations, and general write-off items</li>
+            <li>Quickly find out capitalizable expenses for the year</li>
+            <li>At a glance check to be sure we&apos;ve collected all rents due for each month</li>
+          </ul>
         </p>
       </>
     ),

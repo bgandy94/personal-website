@@ -128,7 +128,7 @@ export const projects: Project[] = [
           data we&apos;re pulling.
         </p>
         <h3 className="font-bold mb-2">
-          Here's an overview of what we can do now very easily:
+          Here&apos;s an overview of what we can do now very easily:
         </h3>
         <ul className="list-disc flex flex-col align-middle list-inside text-left mb-2">
           <li>Generate on-demand P&L statements by property.</li>
@@ -168,8 +168,8 @@ export const projects: Project[] = [
             diagram above
           </Link>{' '}
           the step where we actually parse/format the CSV file from Monarch,
-          there's a bit of interesting pieces going on. Because of the tags in
-          monarch we can assign a property and a transaction type to our data
+          there&apos;s a bit of interesting pieces going on. Because of the tags
+          in monarch we can assign a property and a transaction type to our data
           going in to sheets.
         </p>
 
@@ -178,7 +178,7 @@ export const projects: Project[] = [
         </h3>
         <div className="">
           {transactionTypes.map((tx) => (
-            <p className="mb-2">
+            <p key={tx.name} className="mb-2">
               <span className="font-bold">{tx.name}: </span> {tx.description}
             </p>
           ))}
@@ -193,53 +193,78 @@ export const projects: Project[] = [
         </p>
         <pre className="bg-gray-600 w-full text-left p-2 my-2">
           <code>
-            if transaction has a property tag and a 'maintenance' tag then type
-            = 'Maintenance' <br />
-            if transaction has a property tag and a 'renovation' tag then type =
-            'Renovation' <br />
-            if transaction has a 'rpit write-offs' tag then type = 'Write-Offs'
+            if transaction has a property tag and a &apos;maintenance&apos; tag
+            then type = &apos;Maintenance&apos; <br />
+            if transaction has a property tag and a &apos;renovation&apos; tag
+            then type = &apos;Renovation&apos; <br />
+            if transaction has a &apos;rpt write-offs&apos; tag then type =
+            &apos;Write-Offs&apos;
             <br />
-            else type = 'Operating'
+            else type = &apos;Operating&apos;
           </code>
         </pre>
         <table className="table-auto text-left">
           <thead className="border-b-2">
-            <th className="p-3 border-r-2">Category</th>
-            <th className="p-3 border-r-2">Amount</th>
-            <th className="p-3 border-r-2">Tags</th>
-            <th className="p-3">Type</th>
+            <tr>
+              <th className="p-3 border-r-2">Category</th>
+              <th className="p-3 border-r-2">Amount</th>
+              <th className="p-3 border-r-2">Tags</th>
+              <th className="p-3">Type</th>
+            </tr>
           </thead>
           <tbody>
             <tr>
-              <td className="p-3 border-r-2">Plumbing</td>
-              <td className="p-3 border-r-2">$75.00</td>
-              <td className="p-3 border-r-2">
+              <td className="p-2 border-r-2">Plumbing</td>
+              <td className="p-2 border-r-2">$75.00</td>
+              <td className="p-2 border-r-2">
                 rental prop tx,property 1, maintenance
               </td>
-              <td className="p-3">Maintenance</td>
+              <td className="p-2">Maintenance</td>
             </tr>
             <tr>
-              <td className="p-3 border-r-2">RingCentral</td>
-              <td className="p-3 border-r-2">$75.00</td>
-              <td className="p-3 border-r-2">rental prop tx</td>
-              <td className="p-3">Operating</td>
+              <td className="p-2 border-r-2">RingCentral</td>
+              <td className="p-2 border-r-2">$75.00</td>
+              <td className="p-2 border-r-2">rental prop tx</td>
+              <td className="p-2">Operating</td>
             </tr>
             <tr>
-              <td className="p-3 border-r-2">Home Depot</td>
-              <td className="p-3 border-r-2">$150.00</td>
-              <td className="p-3 border-r-2">rental prop tx, write-off</td>
-              <td className="p-3">Write-Offs</td>
+              <td className="p-2 border-r-2">Home Depot</td>
+              <td className="p-2 border-r-2">$150.00</td>
+              <td className="p-2 border-r-2">rental prop tx, write-off</td>
+              <td className="p-2">Write-Offs</td>
             </tr>
             <tr>
-              <td className="p-3 border-r-2">Johnny the Contractor</td>
-              <td className="p-3 border-r-2">$1500.00</td>
-              <td className="p-3 border-r-2">
+              <td className="p-2 border-r-2">Johnny the Contractor</td>
+              <td className="p-2 border-r-2">$1500.00</td>
+              <td className="p-2 border-r-2">
                 rental prop tx, property 1, renovation
               </td>
               <td className="p-3">Renovation</td>
             </tr>
           </tbody>
         </table>
+        <h3 className="text-xl my-4" id="taxes">
+          Taxes
+        </h3>
+        <p className="pb-4">
+          Now with this new system I&apos;m also able to send capitalizable
+          expenses (which are also tracked by tags) report, property P&L
+          reports, and my real estate agent P&L report to my accountant and have
+          the hard part of taxes done. Obviously still a lot of work to do in
+          order to gather all the documents, but still way less time consuming
+          that it was in years&apos; passed
+        </p>
+        <h3 className="text-xl my-4" id="taxes">
+          Feedback/Questions?
+        </h3>
+        <p>
+          If you have any questions, thoughts on improving this process, or want
+          to get in touch to see if there&apos;s something I can automate for
+          you, please reach out to me at{' '}
+          <Link href="mailto:brandongandy2012@gmail.com" className="underline">
+            brandongandy2012@gmail.com
+          </Link>
+        </p>
       </>
     ),
     title: 'Automating my portfolio P&L with Monarch and Google Sheets',

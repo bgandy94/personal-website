@@ -1,5 +1,5 @@
-import { getFormattedDate } from '@/src/lib/date'
-import { Project, projects } from '@/src/lib/projects'
+import { getFormattedDate } from '@/src/app/lib/date'
+import { Project, projects } from '@/src/app/lib/projects'
 import Head from 'next/head'
 import { notFound } from 'next/navigation'
 import React from 'react'
@@ -18,7 +18,6 @@ export default function Projects({
   params: Pick<Project, 'slug'>
 }) {
   const project = projects.find((x) => x.slug === params.slug)
-  console.log('project!', project)
 
   if (!project) {
     return notFound()
@@ -30,7 +29,7 @@ export default function Projects({
   } = project
 
   return (
-    <div className="flex flex-col items-center text-center pb-8">
+    <div className="flex flex-col items-center text-center pb-8 max-w-[50rem]">
       <Head>
         <title>{title}</title>
       </Head>

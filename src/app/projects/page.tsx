@@ -1,5 +1,5 @@
-import { getFormattedDate } from '@/src/lib/date'
-import { projects } from '@/src/lib/projects'
+import { getFormattedDate } from '@/src/app/lib/date'
+import { projects } from '@/src/app/lib/projects'
 import Link from 'next/link'
 import React from 'react'
 

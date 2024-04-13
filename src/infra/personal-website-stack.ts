@@ -4,7 +4,6 @@ import * as r53 from 'aws-cdk-lib/aws-route53'
 import * as targets from 'aws-cdk-lib/aws-route53-targets'
 import * as cf from 'aws-cdk-lib/aws-cloudfront'
 import * as cm from 'aws-cdk-lib/aws-certificatemanager'
-import { ObjectOwnership } from 'aws-cdk-lib/aws-s3'
 
 const websiteHost = 'brandon.gandy.me'
 const dubdubdubHost = `www.${websiteHost}`
@@ -24,14 +23,14 @@ export class PersonalWebsiteStack extends cdk.Stack {
         blockPublicPolicy: false,
         restrictPublicBuckets: false,
       },
-      objectOwnership: ObjectOwnership.OBJECT_WRITER,
+      objectOwnership: s3.ObjectOwnership.OBJECT_WRITER,
       removalPolicy: cdk.RemovalPolicy.DESTROY,
     })
     new s3.Bucket(this, `${websiteHost}-subdomain-bucket`, {
       versioned: true,
       removalPolicy: cdk.RemovalPolicy.DESTROY,
       bucketName: dubdubdubHost,
-      objectOwnership: ObjectOwnership.OBJECT_WRITER,
+      objectOwnership: s3.ObjectOwnership.OBJECT_WRITER,
       websiteRedirect: {
         hostName: rootBucket.bucketWebsiteUrl,
       },

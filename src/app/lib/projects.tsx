@@ -43,7 +43,7 @@ export const projects: Project[] = [
   {
     slug: 'rental-portfolio-books-automation',
     component: (
-      <>
+      <div className="w-full">
         <h2 className="text-2xl mb-2" id="how-it-started">
           How it started
         </h2>
@@ -191,56 +191,60 @@ export const projects: Project[] = [
           Simply enough, to determine a particular transaction&apos;s type, we
           use the tags to determine that. The logic can be found below
         </p>
-        <code className="text-sm lg:text-[16px] bg-gray-600 w-full text-left p-1 lg:p-2 my-2">
-          if transaction has a property and &apos;maintenance&apos; tag then
-          type = &apos;Maintenance&apos; <br />
-          if transaction has a property and &apos;renovation&apos; tag then type
-          = &apos;Renovation&apos; <br />
-          if transaction has a &apos;rpt write-offs&apos; tag then type =
-          &apos;Write-Offs&apos;
-          <br />
-          else type = &apos;Operating&apos;
-        </code>
-        <table className="table-auto text-left">
-          <thead className="border-b-2">
-            <tr>
-              <th className="p-3 border-r-2">Category</th>
-              <th className="p-3 border-r-2">Amount</th>
-              <th className="p-3 border-r-2">Tags</th>
-              <th className="p-3">Type</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="p-2 border-r-2">Plumbing</td>
-              <td className="p-2 border-r-2">$75.00</td>
-              <td className="p-2 border-r-2">
-                rental prop tx,property 1, maintenance
-              </td>
-              <td className="p-2">Maintenance</td>
-            </tr>
-            <tr>
-              <td className="p-2 border-r-2">RingCentral</td>
-              <td className="p-2 border-r-2">$75.00</td>
-              <td className="p-2 border-r-2">rental prop tx</td>
-              <td className="p-2">Operating</td>
-            </tr>
-            <tr>
-              <td className="p-2 border-r-2">Home Depot</td>
-              <td className="p-2 border-r-2">$150.00</td>
-              <td className="p-2 border-r-2">rental prop tx, write-off</td>
-              <td className="p-2">Write-Offs</td>
-            </tr>
-            <tr>
-              <td className="p-2 border-r-2">Johnny the Contractor</td>
-              <td className="p-2 border-r-2">$1500.00</td>
-              <td className="p-2 border-r-2">
-                rental prop tx, property 1, renovation
-              </td>
-              <td className="p-3">Renovation</td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="bg-gray-600 w-full text-left p-1 lg:p-2 my-2">
+          <code className="text-sm lg:text-[16px] ">
+            if transaction has a property and &apos;maintenance&apos; tag then
+            type = &apos;Maintenance&apos; <br />
+            if transaction has a property and &apos;renovation&apos; tag then
+            type = &apos;Renovation&apos; <br />
+            if transaction has a &apos;rpt write-offs&apos; tag then type =
+            &apos;Write-Offs&apos;
+            <br />
+            else type = &apos;Operating&apos;
+          </code>
+        </div>
+        <div className="w-full overflow-x-scroll">
+          <table className="table-auto text-left">
+            <thead className="border-b-2">
+              <tr>
+                <th className="p-3 border-r-2">Category</th>
+                <th className="p-3 border-r-2">Amount</th>
+                <th className="p-3 border-r-2">Tags</th>
+                <th className="p-3">Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="p-2 border-r-2">Plumbing</td>
+                <td className="p-2 border-r-2">$75.00</td>
+                <td className="p-2 border-r-2">
+                  rental prop tx,property 1, maintenance
+                </td>
+                <td className="p-2">Maintenance</td>
+              </tr>
+              <tr>
+                <td className="p-2 border-r-2">RingCentral</td>
+                <td className="p-2 border-r-2">$75.00</td>
+                <td className="p-2 border-r-2">rental prop tx</td>
+                <td className="p-2">Operating</td>
+              </tr>
+              <tr>
+                <td className="p-2 border-r-2">Home Depot</td>
+                <td className="p-2 border-r-2">$150.00</td>
+                <td className="p-2 border-r-2">rental prop tx, write-off</td>
+                <td className="p-2">Write-Offs</td>
+              </tr>
+              <tr>
+                <td className="p-2 border-r-2">Johnny the Contractor</td>
+                <td className="p-2 border-r-2">$1500.00</td>
+                <td className="p-2 border-r-2">
+                  rental prop tx, property 1, renovation
+                </td>
+                <td className="p-3">Renovation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <h3 className="text-xl my-4" id="taxes">
           Taxes
         </h3>
@@ -263,7 +267,7 @@ export const projects: Project[] = [
             brandongandy2012@gmail.com
           </Link>
         </p>
-      </>
+      </div>
     ),
     title: 'Automating my portfolio P&L with Monarch and Google Sheets',
     dates: { start: new Date('2024-01-31') },

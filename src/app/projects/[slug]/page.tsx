@@ -29,7 +29,7 @@ export default function Projects({
   } = project
 
   return (
-    <div className="flex flex-col items-center text-center pb-8 max-w-[50rem]">
+    <div className="flex flex-col items-center text-center px-2 md:px-0 pb-8 max-w-[50rem]">
       <Head>
         <title>{title}</title>
       </Head>

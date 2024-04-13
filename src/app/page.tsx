@@ -14,8 +14,8 @@ const interests = [
 ]
 export default function Home() {
   return (
-    <>
-      <div className="max-md:max-w-[50%] mb-4">
+    <div className="md:max-w-[50rem] mb-4 text-center">
+      <div className="flex justify-center">
         <Image
           src="/fam-pic.svg"
           alt="family picture"
@@ -72,6 +72,6 @@ export default function Home() {
           .join('')
           .trim()}
       </div>
-    </>
+    </div>
   )
 }

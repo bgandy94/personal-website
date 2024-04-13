@@ -249,12 +249,12 @@ export const projects: Project[] = [
           Taxes
         </h3>
         <p className="pb-4">
-          Now with this new system I&apos;m also able to send capitalizable
-          expenses (which are also tracked by tags) report, property P&L
-          reports, and my real estate agent P&L report to my accountant and have
-          the hard part of taxes done. Obviously still a lot of work to do in
-          order to gather all the documents, but still way less time consuming
-          that it was in years&apos; passed
+          Now with this new system I&apos;m also able to send my capitalizable
+          expenses (which are also tracked by tags) report, portfolio P&L
+          report, and my realtor P&L report to my accountant and have the hard
+          part of taxes done. Obviously still a lot of work to do in order to
+          gather all the documents, but still way less time consuming that it
+          was in years&apos; passed
         </p>
         <h3 className="text-xl my-4" id="taxes">
           Feedback/Questions?

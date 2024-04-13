@@ -191,18 +191,16 @@ export const projects: Project[] = [
           Simply enough, to determine a particular transaction&apos;s type, we
           use the tags to determine that. The logic can be found below
         </p>
-        <pre className="bg-gray-600 w-full text-left p-2 my-2">
-          <code>
-            if transaction has a property tag and a &apos;maintenance&apos; tag
-            then type = &apos;Maintenance&apos; <br />
-            if transaction has a property tag and a &apos;renovation&apos; tag
-            then type = &apos;Renovation&apos; <br />
-            if transaction has a &apos;rpt write-offs&apos; tag then type =
-            &apos;Write-Offs&apos;
-            <br />
-            else type = &apos;Operating&apos;
-          </code>
-        </pre>
+        <code className="text-sm lg:text-[16px] bg-gray-600 w-full text-left p-1 lg:p-2 my-2">
+          if transaction has a property and &apos;maintenance&apos; tag then
+          type = &apos;Maintenance&apos; <br />
+          if transaction has a property and &apos;renovation&apos; tag then type
+          = &apos;Renovation&apos; <br />
+          if transaction has a &apos;rpt write-offs&apos; tag then type =
+          &apos;Write-Offs&apos;
+          <br />
+          else type = &apos;Operating&apos;
+        </code>
         <table className="table-auto text-left">
           <thead className="border-b-2">
             <tr>

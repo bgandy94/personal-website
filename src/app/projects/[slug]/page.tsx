@@ -1,5 +1,6 @@
 import { getFormattedDate } from '@/src/lib/date'
 import { Project, projects } from '@/src/lib/projects'
+import Head from 'next/head'
 import { notFound } from 'next/navigation'
 import React from 'react'
 
@@ -29,7 +30,10 @@ export default function Projects({
   } = project
 
   return (
-    <div className="flex flex-col items-center text-center">
+    <div className="flex flex-col items-center text-center pb-8">
+      <Head>
+        <title>{title}</title>
+      </Head>
       <h1 className="text-3xl mb-4">{title}</h1>
       <h2 className="text-lg mb-4 italic text-gray-300">
         {`${getFormattedDate(start)} - ${end ? getFormattedDate(end) : 'current'}`}

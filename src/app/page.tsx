@@ -61,7 +61,7 @@ export default function Home() {
         2024) at an early-stage startup as a founding engineer. As anyone
         who&apos;s experienced such an early-stage startup before knows,
         I&apos;m wearing a lot of hats right now. However, it&apos;s been an
-        amazing right so far and I&apos;m super excited to see what comes out of
+        amazing ride so far and I&apos;m super excited to see what comes out of
         it.
       </p>
 

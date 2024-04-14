@@ -48,17 +48,17 @@ export const projects: Project[] = [
           How it started
         </h2>
         <p className="mb-4">
-          I&apos;ve been rentals now since February of 2018, and one of the
-          things I always dread every year is taxes. Before ever getting in to
-          real estate I adopted a technology called{' '}
-          <a href="https://mint.intuit.com/" className="underline">
-            mint
-          </a>
+          I&apos;ve been doing rentals now since February of 2018, and one of
+          the things I always dread every year is taxes. Before ever getting in
+          to real estate, I adopted a technology called{' '}
+          <Link href="https://Mint.intuit.com/" className="underline">
+            Mint
+          </Link>
           . It was a pretty amazing tool to help me and my wife understand where
           our money was going and even do things like budgeting. Once we began
           buying rentals, we knew we needed to have some system for books, so we
           decided to go ahead and use Quickbooks to do the financials for the
-          portfolio. We would end up using tags within mint to be able to know
+          portfolio. We would end up using tags within Mint to be able to know
           which of our transactions were rental-related and which property they
           were related to. We had a top-level tag called &quot;rental prop
           tx&quot; that we&apos;d assign to ALL transactions related to rentals,
@@ -69,16 +69,16 @@ export const projects: Project[] = [
           account, which was obviously also a terrible setup.
         </p>
         <p className=" mb-4">
-          So mint was pretty much our source of truth and where the process of
+          So Mint was pretty much our source of truth and where the process of
           our books would begin. Then, as we found time, we&apos;d use
-          mint&apos;s transaction search functionality to look for all of our
+          Mint&apos;s transaction search functionality to look for all of our
           rental transactions and put them into Quickbooks, manually. At the
-          time I believe we were using Quickbooks 2017, and exporting to a QBO
-          file wasn&apos;t (I think) available through mint, so all of the
-          transactions from mint had to be manually typed in to Quickbooks.
-          Given the arduos nature of this task, what naturally happened over
+          time I believe we were using Quickbooks 2017. Exporting to a QBO file
+          wasn&apos;t (I think) available through Mint, so all of the
+          transactions from Mint had to be manually typed in to Quickbooks.
+          Given the arduous nature of this task, what naturally happened over
           time was that it&apos;d be many months between data being manually
-          migrated from mint to Quickbooks. Also not helping the cause was the
+          migrated from Mint to Quickbooks. Also not helping the cause was the
           fact that we kept buying more rentals, which meant more data to
           import!
         </p>
@@ -96,10 +96,8 @@ export const projects: Project[] = [
         <p className="mb-4">
           While this original system had it&apos;s obvious flaws and relied very
           heavily on my pure will to complete this unfortunate task, it did work
-          for us for several years before I finally decided enough was enough.
-          Being in software, automating manual tasks is always something
-          I&apos;m conscious of. I began actually building out an export
-          application on top of{' '}
+          for us for several years before I finally decided enough was enough. I
+          began actually building out an export application on top of{' '}
           <Link
             href="https://www.electronjs.org/"
             className="underline"
@@ -107,7 +105,7 @@ export const projects: Project[] = [
           >
             Electron
           </Link>
-          &nbsp; to basically scrape the data from our mint account into a CSV
+          &nbsp; to basically scrape the data from our Mint account into a CSV
           that I could then use to in Google sheets to generate P&L reports with
           pivot tables. Then, come roughly October or November of 2023, Mint
           announces its shutting down and transferring those who want to over to
@@ -122,8 +120,8 @@ export const projects: Project[] = [
             Monarch Money
           </Link>{' '}
           a try. We fairly quickly began to enjoy the features of Monarch,
-          including their mint migration tool, which made tranferring our data
-          out of mint and into Monarch super easy. We pretty quickly devised a
+          including their Mint migration tool, which made tranferring our data
+          out of Mint and into Monarch super easy. We pretty quickly devised a
           new system of tags that now allows us to do a lot of things with the
           data we&apos;re pulling.
         </p>

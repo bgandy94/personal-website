@@ -206,7 +206,10 @@ export const projects: Project[] = [
             'CSV file parsed/formatted',
             'Newly formatted data pushed to Google Sheets via API',
           ].map((text, i) => (
-            <div className="bg-primary rounded-md px-4 items-center justify-center h-48 flex relative">
+            <div
+              key={text}
+              className="bg-primary rounded-md px-4 items-center justify-center h-48 flex relative"
+            >
               <CircleWithNumber
                 className="absolute top-3 left-3"
                 number={i + 1}

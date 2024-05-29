@@ -202,7 +202,7 @@ export const projects: Project[] = [
         <div className="grid gap-x-16 gap-y-8 grid-cols-1 my-4 md:grid-cols-2">
           {[
             'Data export started -- run every 1 hour on a schedule',
-            'Login to Monarch and download a CSV export of all transactions with main &apos;rental prop tx&apos; tag',
+            "Login to Monarch and download a CSV export of all transactions with main 'rental prop tx' tag",
             'CSV file parsed/formatted',
             'Newly formatted data pushed to Google Sheets via API',
           ].map((text, i) => (

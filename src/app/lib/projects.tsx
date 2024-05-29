@@ -199,7 +199,7 @@ export const projects: Project[] = [
           </li>
         </ul>
         <h3 className="text-xl">How it works</h3>
-        <div className="grid gap-x-16 gap-y-8 grid-cols-1 mt-4 md:grid-cols-2">
+        <div className="grid gap-x-16 gap-y-8 grid-cols-1 my-4 md:grid-cols-2">
           {[
             'Data export started -- run every 1 hour on a schedule',
             'Login to Monarch and download a CSV export of all transactions with main &apos;rental prop tx&apos; tag',

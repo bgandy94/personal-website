@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { getFormattedDate } from './lib/date'
 const interests = [
   'Software',
   'Real Estate Investing',
@@ -12,6 +13,7 @@ const interests = [
   'Video games',
   'Golf',
 ]
+
 export default function Home() {
   return (
     <div className="md:max-w-[50rem] mb-4 text-center">
@@ -27,7 +29,7 @@ export default function Home() {
       </div>
       <h1 className="text-3xl ">Hi, I&apos;m Brandon.</h1>
       <p className="text-gray-400 text-xs mb-4 italic font-bold">
-        Last updated: 4/6/2024
+        Last updated: {getFormattedDate(new Date())}
       </p>
       <p className="mb-2">
         &emsp;As you can see in the picture above, first and foremost I&apos;m a

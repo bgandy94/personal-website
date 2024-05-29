@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { CSSProperties } from 'react'
 
 export type Project = {
   slug: string
@@ -38,10 +38,66 @@ const transactionTypes: TransactionTypeDisplay[] = [
       'a transaction, typically unrelated to a particular property, that is related to your portfolio but not necessarily needed to operate/maintain the portfolio. Examples include vehicles, equipment, tools, etc...',
   },
 ]
+type CircleWithNumberProps = {
+  number: number
+  size: number
+  color: string
+  style?: CSSProperties
+  strokeColor?: string
+  strokeWidth?: number
+  textColor?: string
+  className?: string
+}
+const CircleWithNumber = ({
+  number,
+  size,
+  color,
+  strokeColor,
+  strokeWidth,
+  textColor,
+  style,
+  className,
+}: CircleWithNumberProps) => {
+  const radius = size / 2 - (strokeWidth ?? 0)
+  const center = size / 2
+
+  return (
+    <svg
+      className={className}
+      width={size}
+      style={style}
+      height={size}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx={center}
+        cy={center}
+        r={radius}
+        stroke={strokeColor}
+        strokeWidth={strokeWidth}
+        fill={color}
+      />
+      <text
+        x="50%"
+        y="50%"
+        textAnchor="middle"
+        stroke={textColor}
+        strokeWidth="1px"
+        dy=".3em"
+        fontSize={size / 1.5}
+        fill={textColor}
+      >
+        {number}
+      </text>
+    </svg>
+  )
+}
 
 export const projects: Project[] = [
   {
     slug: 'rental-portfolio-books-automation',
+    title: 'Automating my portfolio P&L with Monarch and Google Sheets',
+    dates: { start: new Date(2024, 0, 31) },
     component: (
       <div className="w-full">
         <h2 className="text-2xl mb-2" id="how-it-started">
@@ -143,13 +199,25 @@ export const projects: Project[] = [
           </li>
         </ul>
         <h3 className="text-xl">How it works</h3>
-        <Image
-          id="data-formatter-diagram"
-          src="/data-formatter-diagram.svg"
-          alt="data formatter system diagram"
-          width={800}
-          height={500}
-        />
+        <div className="grid gap-x-16 gap-y-8 grid-cols-1 mt-4 md:grid-cols-2">
+          {[
+            'Data export started -- run every 1 hour on a schedule',
+            'Login to Monarch and download a CSV export of all transactions with main &apos;rental prop tx&apos; tag',
+            'CSV file parsed/formatted',
+            'Newly formatted data pushed to Google Sheets via API',
+          ].map((text, i) => (
+            <div className="bg-primary rounded-md px-4 items-center justify-center h-48 flex relative">
+              <CircleWithNumber
+                className="absolute top-3 left-3"
+                number={i + 1}
+                color="white"
+                size={25}
+              />
+              <p>{text}</p>
+            </div>
+          ))}
+        </div>
+
         <p className="mb-4">
           Now that all of this is setup, every single hour, on the hour, I get
           updates to my Google sheet with any new transactions that were
@@ -267,7 +335,5 @@ export const projects: Project[] = [
         </p>
       </div>
     ),
-    title: 'Automating my portfolio P&L with Monarch and Google Sheets',
-    dates: { start: new Date('2024-01-31') },
   },
 ]

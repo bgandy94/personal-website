@@ -12,11 +12,12 @@ export async function generateStaticParams() {
   }))
 }
 
-export default function Projects({
-  params,
-}: {
-  params: Pick<Project, 'slug'>
-}) {
+export default async function Projects(
+  props: {
+    params: Promise<Pick<Project, 'slug'>>
+  }
+) {
+  const params = await props.params;
   const project = projects.find((x) => x.slug === params.slug)
 
   if (!project) {

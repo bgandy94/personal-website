@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
       - uses: dorny/paths-filter@v3
         id: filter
         with:
@@ -37,9 +39,9 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: 'us-east-1'
       - name: install deps
-        run: sudo yarn --frozen-lockfile
+        run: pnpm --frozen-lockfile
       - name: Build static site files
-        run: yarn build
+        run: pnpm build
 
       - name: Deploy static site to S3 bucket
         run: aws s3 sync ./out/ s3://brandon.gandy.me --delete

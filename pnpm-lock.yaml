@@ -12,6 +12,9 @@ importers:
 
   .:
     dependencies:
+      '@next/env':
+        specifier: ^15.0.3
+        version: 15.0.3
       aws-cdk-lib:
         specifier: ^2.170.0
         version: 2.170.0(constructs@10.4.2)

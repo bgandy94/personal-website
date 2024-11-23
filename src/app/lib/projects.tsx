@@ -5,6 +5,7 @@ import React, { CSSProperties } from 'react'
 export type Project = {
   slug: string
   component: React.JSX.Element
+  draft?: boolean
   title: string
   dates: {
     start: Date
@@ -335,6 +336,91 @@ export const projects: Project[] = [
           <Link href="mailto:brandongandy2012@gmail.com" className="underline">
             brandongandy2012@gmail.com
           </Link>
+        </p>
+      </div>
+    ),
+  },
+  {
+    slug: 'custom-business-phone',
+    dates: { start: new Date(2024, 9, 3), end: new Date(2024, 10, 12) },
+    title: 'Custom Business Phone to Replace RingCentral',
+    draft: true,
+    component: (
+      <div className="w-full">
+        <h2 className="text-2xl mb-2" id="the-problem">
+          The Problem
+        </h2>
+        <p className="mb-4">
+          My wife and I have been managing rentals for quite some time now, and
+          one of the tools we've been using for a while is{' '}
+          <Link href="https://ringcentral.com" className="underline">
+            RingCentral
+          </Link>{' '}
+          as a business phone offering. The primary issues we were running into
+          with not having a centralized number include:
+        </p>
+        <ul className="list-disc list-inside text-left">
+          <li className="mb-2">
+            <span className="font-bold">Privacy:</span> posting our personal
+            numbers on the rental listings and legal documents was not desired.
+          </li>
+          <li className="mb-2">
+            <span className="font-bold">Professionalism:</span> having a
+            dedicated business number helps maintain a professional image.
+          </li>
+          <li className="mb-2">
+            <span className="font-bold">Call Management:</span> it was difficult
+            to manage and track calls related to the business when using
+            personal numbers.
+          </li>
+          <li className="mb-2">
+            <span className="font-bold">Separation:</span> keeping business and
+            personal communications separate was important for work-life
+            balance.
+          </li>
+          <li className="mb-2">
+            <span className="font-bold">Verification Codes:</span> a lot of our
+            different systems (banks, supply houses, etc...) will send a
+            verification code to a phone number on file. Having a shared number
+            allows us to receive those texts independently without having to ask
+            the other person to share the code.
+          </li>
+        </ul>
+        <p className="mb-4">
+          While RingCentral supported texting and had a lot of great features,
+          it came with some pretty considerable drawbacks. For one, the texting
+          worked, but it did not work for the shared number. This meant we were
+          in the same boat before in regards to being able to solve our
+          Verification Code problem. Secondly, we were constantly receiving
+          calls from spam numbers, and while RingCentral did have a spam filter,
+          it was not very good. Lastly, the cost was pretty high for what we
+          were getting out of it.
+        </p>
+        <h2 className="text-2xl mb-2" id="the-solution">
+          The Solution
+        </h2>
+        <p>
+          After a bit of ideation, I decided to build a custom business phone on
+          top of the following technologies:
+        </p>
+        <ul className="list-disc list-inside text-left mb-4">
+          <li>Twilio</li>
+          <li>
+            AWS:
+            <ul className="list-inside">
+              <li>API Gateway</li>
+              <li>Lambda</li>
+              <li>DynamoDB</li>
+              <li>S3</li>
+              <li>SES</li>
+              <li>Route53</li>
+              <li>AWS Transcribe</li>
+            </ul>
+          </li>
+        </ul>
+        <p>
+          Looking at that list of tech, I'm sure the question that instantly
+          comes to mind is, why were so many services used??
         </p>
       </div>
     ),

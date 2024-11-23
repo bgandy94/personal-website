@@ -21,3 +21,8 @@
     text-wrap: balance;
   }
 }
+
+ul ul {
+  margin-left: 1.25rem;
+  list-style: circle;
+}

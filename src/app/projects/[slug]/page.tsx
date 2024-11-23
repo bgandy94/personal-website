@@ -1,23 +1,25 @@
 import { getFormattedDate } from '@/src/app/lib/date'
 import { Project, projects } from '@/src/app/lib/projects'
+import { loadEnvConfig } from '@next/env'
 import Head from 'next/head'
 import { notFound } from 'next/navigation'
 import React from 'react'
 
-export const dynamic = 'error'
-
-export async function generateStaticParams() {
-  return projects.map((project) => ({
-    slug: project.slug,
-  }))
+export function generateStaticParams() {
+  const env = loadEnvConfig(process.cwd())
+  const isDev = env.combinedEnv.NODE_ENV === 'development'
+  return projects
+    .filter((p) => isDev || !p.draft)
+    .map((project) => ({
+      slug: project.slug,
+    }))
 }
 
-export default async function Projects(
-  props: {
-    params: Promise<Pick<Project, 'slug'>>
-  }
-) {
-  const params = await props.params;
+export default async function Projects(props: {
+  params: Promise<Pick<Project, 'slug'>>
+}) {
+  const params = await props.params
+
   const project = projects.find((x) => x.slug === params.slug)
 
   if (!project) {

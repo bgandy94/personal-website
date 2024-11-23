@@ -352,7 +352,7 @@ export const projects: Project[] = [
         </h2>
         <p className="mb-4">
           My wife and I have been managing rentals for quite some time now, and
-          one of the tools we've been using for a while is{' '}
+          one of the tools we&apos;ve been using for a while is{' '}
           <Link href="https://ringcentral.com" className="underline">
             RingCentral
           </Link>{' '}
@@ -419,8 +419,8 @@ export const projects: Project[] = [
           </li>
         </ul>
         <p>
-          Looking at that list of tech, I'm sure the question that instantly
-          comes to mind is, why were so many services used??
+          Looking at that list of tech, I&apos;m sure the question that
+          instantly comes to mind is, why were so many services used??
         </p>
       </div>
     ),

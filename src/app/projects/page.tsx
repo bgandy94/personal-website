@@ -1,8 +1,14 @@
 import { getFormattedDate } from '@/src/app/lib/date'
 import { projects } from '@/src/app/lib/projects'
 import { loadEnvConfig } from '@next/env'
+import { Metadata } from 'next'
 import Link from 'next/link'
 import React from 'react'
+import { generateFormattedTitle } from '../lib/metadata-helpers'
+
+export const metadata: Metadata = {
+  title: generateFormattedTitle('Projects'),
+}
 
 export default function Projects() {
   const env = loadEnvConfig(process.cwd())

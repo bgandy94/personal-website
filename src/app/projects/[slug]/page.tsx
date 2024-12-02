@@ -2,8 +2,10 @@ import { getFormattedDate } from '@/src/app/lib/date'
 import { Project, projects } from '@/src/app/lib/projects'
 import { loadEnvConfig } from '@next/env'
 import Head from 'next/head'
+import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import React from 'react'
+import { generateFormattedTitle } from '../../lib/metadata-helpers'
 
 export function generateStaticParams() {
   const env = loadEnvConfig(process.cwd())
@@ -13,6 +15,23 @@ export function generateStaticParams() {
     .map((project) => ({
       slug: project.slug,
     }))
+}
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<Pick<Project, 'slug'>>
+}): Promise<Metadata> => {
+  const parms = await params
+
+  const title = projects.find((x) => x.slug === parms.slug)?.title
+
+  if (!title) {
+    throw new Error('Project not found')
+  }
+  return {
+    title: generateFormattedTitle(title),
+  }
 }
 
 export default async function Projects(props: {

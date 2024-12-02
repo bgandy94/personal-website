@@ -2,11 +2,12 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { generateFormattedTitle } from './lib/metadata-helpers'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "Brandon Gandy's Personal Site",
+  title: generateFormattedTitle('Home'),
   description: 'Portfolio site for Brandon Gandy',
 }
 

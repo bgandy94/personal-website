@@ -7,13 +7,9 @@ import React from 'react'
 import { generateFormattedTitle } from '../../lib/metadata-helpers'
 
 export function generateStaticParams() {
-  const env = loadEnvConfig(process.cwd())
-  const isDev = env.combinedEnv.NODE_ENV === 'development'
-  return projects
-    .filter((p) => isDev || !p.draft)
-    .map((project) => ({
-      slug: project.slug,
-    }))
+  return projects.map((project) => ({
+    slug: project.slug,
+  }))
 }
 
 export const generateMetadata = async ({

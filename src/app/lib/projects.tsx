@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import React, { CSSProperties } from 'react'
+import React, { CSSProperties, PropsWithChildren } from 'react'
 
 export type Project = {
   slug: string
@@ -11,6 +11,24 @@ export type Project = {
     end?: Date
   }
 }
+
+const Outro = () => (
+  <>
+    <h2 className="text-2xl my-4">Feedback/Questions?</h2>
+    <p>
+      If you have any questions, thoughts on improving this process, or want to
+      get in touch to see if there&apos;s something I can automate for you,
+      please reach out to me at{' '}
+      <Link href="mailto:brandongandy2012@gmail.com" className="underline">
+        brandongandy2012@gmail.com
+      </Link>
+    </p>
+  </>
+)
+
+const CodeSpan = ({ children }: PropsWithChildren) => (
+  <code className="bg-slate-600">{children}</code>
+)
 
 type TransactionTypeDisplay = {
   name: string
@@ -304,7 +322,7 @@ export const projects: Project[] = [
                 <td className="p-2">Write-Offs</td>
               </tr>
               <tr>
-                <td className="p-2 border-r-2">Johnny the Contractor</td>
+                <td className="p-2 border-r-2">Electrical</td>
                 <td className="p-2 border-r-2">$1500.00</td>
                 <td className="p-2 border-r-2">
                   rental prop tx, property 1, renovation
@@ -325,25 +343,15 @@ export const projects: Project[] = [
           gather all the documents, but still way less time consuming that it
           was in years&apos; passed
         </p>
-        <h3 className="text-xl my-4" id="taxes">
-          Feedback/Questions?
-        </h3>
-        <p>
-          If you have any questions, thoughts on improving this process, or want
-          to get in touch to see if there&apos;s something I can automate for
-          you, please reach out to me at{' '}
-          <Link href="mailto:brandongandy2012@gmail.com" className="underline">
-            brandongandy2012@gmail.com
-          </Link>
-        </p>
+        <Outro />
       </div>
     ),
   },
   {
     slug: 'custom-business-phone',
     dates: { start: new Date(2024, 9, 3), end: new Date(2024, 10, 12) },
-    title: 'Custom Business Phone to Replace RingCentral',
     draft: true,
+    title: 'Custom Business Phone to Replace RingCentral',
     component: (
       <div className="w-full">
         <h2 className="text-2xl mb-2" id="the-problem">
@@ -399,27 +407,183 @@ export const projects: Project[] = [
           The Solution
         </h2>
         <p>
-          After a bit of ideation, I decided to build a custom business phone on
-          top of the following technologies:
+          After a bit of ideation, I decided to build a custom business phone
+          tailored to our needs that addressed our specific problems. The way
+          the system works is pretty simple. We have a single phone number that
+          behaves in the following way:
+        </p>
+        <h3 className="text-xl mt-2">Incoming Phone Call</h3>
+        <p className="font-bold m-1">
+          A call is received from a non-agent number
+        </p>
+        <p>
+          A non-agent number consists of any number that is not my wife or
+          I&apos;s number. When this occurs, both of our phones will ring.
+          Whoever picks up first gets to answer the call. If neither of us
+          answer the call in time, the call will be forwarded to voicemail. Once
+          they reach voicemail, the caller will prompted to leave a message. The
+          voice message, if left, will be transcribed, and sent in an email
+          along with the audio to our shared business email.
+          <p className="font-bold m-1">
+            A call is received from an agent number
+          </p>
+          An agent phone number is either my wife or I&apos;s personal number.
+          When this occurs, the admin IVR menu will take over. We have two
+          options currently included in this menu. The first option is to call
+          the last number that called the business (excluding ourselves
+          obviously), and the second is to make a call as the business number.
+          Both of these options give us the optionality to make calls fairly
+          conveniently behind the caller id of the business, maintaining the
+          privacy of our personal numbers.
+        </p>
+        <h3 className="text-xl mt-2">Incoming Text Message</h3>
+        <p>
+          Texts are a bit more simple. When a text is received, the contents and
+          sender of the message will be sent via email to the business email. To
+          reply, we simply reply to the email and it sends that back as a text
+          to the original sender. This is a bit of a hacky solution, but it
+          avoided our need to build a whole new mobile app to faciliate text
+          communications from our business number. It fully supports images as
+          well!
+        </p>
+        <Outro />
+
+        <h2 className="text-2xl mt-4">
+          Interested in the technical details? Keep reading!
+        </h2>
+
+        <h3 className="text-xl mt-4">Intro</h3>
+
+        <p>
+          The following technologies were used to build the custom business
+          phone:
         </p>
         <ul className="list-disc list-inside text-left mb-4">
-          <li>Twilio</li>
+          <li>Twilio - SMS/Phone technology</li>
           <li>
             AWS:
             <ul className="list-inside">
-              <li>API Gateway</li>
-              <li>Lambda</li>
-              <li>DynamoDB</li>
-              <li>S3</li>
-              <li>SES</li>
-              <li>Route53</li>
-              <li>AWS Transcribe</li>
+              <li>
+                API Gateway - used to route requests to the serverless
+                endpoints.
+              </li>
+              <li>Lambda - serveless functions to do things.</li>
+              <li>
+                DynamoDB - used to store text messages. (will explain more
+                later)
+              </li>
+              <li>
+                S3 - used to store recordings, and also MMS images in-flight
+              </li>
+              <li>SES - used for emailing receiving and sending</li>
+              <li>Route53 - used for DNS</li>
+              <li>AWS Transcribe - used for voicemail transcriptions.</li>
             </ul>
           </li>
         </ul>
         <p>
           Looking at that list of tech, I&apos;m sure the question that
-          instantly comes to mind is, why were so many services used??
+          instantly comes to mind is, how did this get so complicated? Well
+          there was one particularly major thing I was trying to avoid to get
+          this thing up and running as quick as possible.{' '}
+          <span className="font-bold">No custom mobile app.</span> One of the
+          major issues of building a custom app is building it in such a way
+          that the lovely team at Apple would approve and put on the Apple
+          Store, or pay for various tools like TestFlight and really hack it
+          onto my wife&apos;s phone. I wanted to avoid all of that, so after
+          chatting with a couple of my buddies in tech, the idea of using email
+          as the technology to faciliate text communication became highly
+          intriguing. Overall, the idea of receiving a text and sending it over
+          email was extremely simple to implement. The tricky part came in when
+          trying to trick my email service of choice (Gmail) into threading text
+          exchanges together. This was more complicated than I had originally
+          anticipated. The naive part of me thought, same sender? Same subject?
+          Surely gmail will just thread that. That was definitely not how it
+          went down.
+        </p>
+        <h3 className="text-xl mt-4">Gmail and Threading</h3>
+        <p>
+          My main desire was the text emails to thread similarly to how they
+          would in all SMS apps. There&apos;s at least one major requirement in
+          order to make gmail understand that that an email is a reply to
+          another email. The <CodeSpan>In-Reply-To</CodeSpan> and{' '}
+          <CodeSpan>References</CodeSpan> header. The trickiest part of this
+          came because of the need of setting these headers to the message id of
+          the previous email you&apos;re wanting to thread with. Obviously, the
+          email client handled that for free, as it always does when we were
+          sending emails out. But when the text messages came in, we&apos;d have
+          to associate the text with the last email associated with the thread
+          for that phone number. So basically, everytime an email is either
+          received by our business email, or a text is received and an email is
+          sent to the business email, everything is stored in DynamoDB along
+          with their message id. This way, as emails are being sent to the
+          business email triggered by a text, we can lookup the most recent
+          email for that phone, grab the message id, and inject that into the
+          headers so gmail will thread that for us.
+        </p>
+        <p>
+          Sadly, even with all this fun work, gmail will still limit my threads
+          to be less than 50 emails, but it&apos;s still better than new threads
+          for every text.
+        </p>
+
+        <h3 className="text-xl mt-4">MMS</h3>
+        <p className="font-bold my-1">
+          Why are my email images not being sent over text?!
+        </p>
+        <p>
+          Another painpoint of this project was handling images in both
+          directions. Sending images from a text over email was a pretty trivial
+          effort. Unexpectedly, going the other direction proved to be a bit
+          more challenging. The main problem I originally ran into was that
+          emails were bouncing when being sent with images to the SES email, but
+          there was virtually no indication as to what the problem was. After
+          stepping away from the idea and attempting to be content with the
+          system as it was, I finally decided to re-address the problem and give
+          it another look. Based on everything I could find, Twilio&apos;s image
+          size limits were way larger than I was sending, as was SES&apos;s
+          (seemingly.) I finally tripped on{' '}
+          <Link
+            target="_blank"
+            href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-action-sns.html"
+            className="underline"
+          >
+            this AWS documentation page
+          </Link>{' '}
+          that finally gave me the answer I was looking for. Apparently, if you
+          drop an SES event directly on to SNS, it drastically reduces your
+          email size limit, all the way down to 150KB. After discovering this, I
+          adjusted the SES receipt rule to put it on S3, and then trigger the
+          SNS topic which pulls the full email from S3 and processes it from
+          there.
+        </p>
+        <p className="font-bold my-1">
+          Twilio&apos;s API for sending texts uses URLS. How do I faciliate
+          that?
+        </p>
+        <p>
+          Following{' '}
+          <Link
+            target="_blank"
+            className="underline"
+            href="https://www.twilio.com/docs/messaging/tutorials/how-to-send-sms-messages/node#send-a-message-containing-media-mms-in-nodejs"
+          >
+            the tutorial available on Twilio&apos;s website,
+          </Link>
+          &nbsp;the <CodeSpan>mediaUrl</CodeSpan> property is an array of urls
+          to the files needing attached to the text. Given this need, the images
+          that are received by SES need to be publicly available for Twilio to
+          be able to send them. It works as follows: once an email is received
+          with images via the SES email, those images are parsed and stored in
+          S3. Once stored in S3, presigned urls are generated for each image and
+          then those URLs are sent along in the <CodeSpan>mediaUrl</CodeSpan>{' '}
+          property. This gives us time-based authorization for links so Twilio
+          can access them and send them along!
+        </p>
+        <p>
+          Considering the images are only needed for a short period of time, I
+          also setup auto-deletion on the objects within that bucket to happen
+          to everything that is older than 24 hours.
         </p>
       </div>
     ),

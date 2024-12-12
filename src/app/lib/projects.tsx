@@ -19,8 +19,8 @@ const Outro = () => (
       If you have any questions, thoughts on improving this process, or want to
       get in touch to see if there&apos;s something I can automate for you,
       please reach out to me at{' '}
-      <Link href="mailto:brandongandy2012@gmail.com" className="underline">
-        brandongandy2012@gmail.com
+      <Link href="mailto:brandongandy2012@Gmail.com" className="underline">
+        brandongandy2012@Gmail.com
       </Link>
     </p>
   </>
@@ -488,7 +488,7 @@ export const projects: Project[] = [
           this thing up and running as quick as possible.{' '}
           <span className="font-bold">No custom mobile app.</span> One of the
           major issues of building a custom app is building it in such a way
-          that the lovely team at Apple would approve and put on the Apple
+          that the lovely team at Apple would approve to be put put on the Apple
           Store, or pay for various tools like TestFlight and really hack it
           onto my wife&apos;s phone. I wanted to avoid all of that, so after
           chatting with a couple of my buddies in tech, the idea of using email
@@ -497,34 +497,34 @@ export const projects: Project[] = [
           email was extremely simple to implement. The tricky part came in when
           trying to trick my email service of choice (Gmail) into threading text
           exchanges together. This was more complicated than I had originally
-          anticipated. The naive part of me thought, same sender? Same subject?
-          Surely gmail will just thread that. That was definitely not how it
-          went down.
+          anticipated. The naive part of me thought: same sender, same
+          subject—surely Gmail will just thread that. But that&apos;s definitely
+          not how it went down.”
         </p>
         <h3 className="text-xl mt-4">Gmail and Threading</h3>
         <p>
           My main desire was the text emails to thread similarly to how they
           would in all SMS apps. There&apos;s at least one major requirement in
-          order to make gmail understand that that an email is a reply to
+          order to make Gmail understand that that an email is a reply to
           another email. The <CodeSpan>In-Reply-To</CodeSpan> and{' '}
-          <CodeSpan>References</CodeSpan> header. The trickiest part of this
-          came because of the need of setting these headers to the message id of
-          the previous email you&apos;re wanting to thread with. Obviously, the
-          email client handled that for free, as it always does when we were
-          sending emails out. But when the text messages came in, we&apos;d have
-          to associate the text with the last email associated with the thread
-          for that phone number. So basically, everytime an email is either
-          received by our business email, or a text is received and an email is
-          sent to the business email, everything is stored in DynamoDB along
-          with their message id. This way, as emails are being sent to the
-          business email triggered by a text, we can lookup the most recent
-          email for that phone, grab the message id, and inject that into the
-          headers so gmail will thread that for us.
+          <CodeSpan>References</CodeSpan> headers. The catch about those headers
+          is that you need to set them to the message id of the email you want
+          to thread with. Obviously, the email client handled that for free, as
+          it always does when we were sending emails out. But when the text
+          messages came in, we&apos;d have to associate the text with the last
+          email associated with the thread for that phone number. So basically,
+          everytime an email is either received by our business email, or a text
+          is received and an email is sent to the business email, everything is
+          stored in DynamoDB along with their message id. This way, as emails
+          are being sent to the business email triggered by a text, we can
+          lookup the most recent email for that phone number, grab the message
+          id, and inject that into the headers so Gmail will recognize that
+          email as a reply to the latest email in the thread.
         </p>
         <p>
-          Sadly, even with all this fun work, gmail will still limit my threads
-          to be less than 50 emails, but it&apos;s still better than new threads
-          for every text.
+          Sadly, even with all this &ldquo;fun&rdquo; work, Gmail will still
+          limit my threads to be less than 50 emails, but it&apos;s still better
+          than new threads for every text.
         </p>
 
         <h3 className="text-xl mt-4">MMS</h3>
@@ -541,8 +541,8 @@ export const projects: Project[] = [
           stepping away from the idea and attempting to be content with the
           system as it was, I finally decided to re-address the problem and give
           it another look. Based on everything I could find, Twilio&apos;s image
-          size limits were way larger than I was sending, as was SES&apos;s
-          (seemingly.) I finally tripped on{' '}
+          size limits were way larger than what I was sending, as was SES&apos;s
+          (seemingly). I finally tripped on{' '}
           <Link
             target="_blank"
             href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-action-sns.html"

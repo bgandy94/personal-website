@@ -14,20 +14,16 @@ export type Project = {
 
 const Outro = () => (
   <>
-    <h2 className="text-2xl my-4">Feedback/Questions?</h2>
+    <h2>Feedback/Questions?</h2>
     <p>
       If you have any questions, thoughts on improving this process, or want to
       get in touch to see if there&apos;s something I can automate for you,
       please reach out to me at{' '}
-      <Link href="mailto:brandongandy2012@Gmail.com" className="underline">
+      <Link href="mailto:brandongandy2012@Gmail.com">
         brandongandy2012@Gmail.com
       </Link>
     </p>
   </>
-)
-
-const CodeSpan = ({ children }: PropsWithChildren) => (
-  <code className="bg-slate-600">{children}</code>
 )
 
 type TransactionTypeDisplay = {
@@ -118,31 +114,27 @@ export const projects: Project[] = [
     dates: { start: new Date(2024, 0, 31) },
     component: (
       <div className="w-full">
-        <h2 className="text-2xl mb-2" id="how-it-started">
-          How it started
-        </h2>
-        <p className="mb-4">
+        <h2 id="how-it-started">How it started</h2>
+        <p>
           I&apos;ve been doing rentals now since February of 2018, and one of
           the things I always dread every year is taxes. Before ever getting in
           to real estate, I adopted a technology called{' '}
-          <Link href="https://Mint.intuit.com/" className="underline">
-            Mint
-          </Link>
-          . It was a pretty amazing tool to help me and my wife understand where
-          our money was going and even do things like budgeting. Once we began
-          buying rentals, we knew we needed to have some system for books, so we
-          decided to go ahead and use Quickbooks to do the financials for the
-          portfolio. We would end up using tags within Mint to be able to know
-          which of our transactions were rental-related and which property they
-          were related to. We had a top-level tag called &quot;rental prop
-          tx&quot; that we&apos;d assign to ALL transactions related to rentals,
-          and then if a particular purchase was related to an individual
-          property, we had tags for all of our properties that we&apos;d then
-          assign as well. This was particularly useful at the time because our
-          operating funds and personal funds were all out of the same bank
-          account, which was obviously also a terrible setup.
+          <Link href="https://Mint.intuit.com/">Mint</Link>. It was a pretty
+          amazing tool to help me and my wife understand where our money was
+          going and even do things like budgeting. Once we began buying rentals,
+          we knew we needed to have some system for books, so we decided to go
+          ahead and use Quickbooks to do the financials for the portfolio. We
+          would end up using tags within Mint to be able to know which of our
+          transactions were rental-related and which property they were related
+          to. We had a top-level tag called &quot;rental prop tx&quot; that
+          we&apos;d assign to ALL transactions related to rentals, and then if a
+          particular purchase was related to an individual property, we had tags
+          for all of our properties that we&apos;d then assign as well. This was
+          particularly useful at the time because our operating funds and
+          personal funds were all out of the same bank account, which was
+          obviously also a terrible setup.
         </p>
-        <p className=" mb-4">
+        <p>
           So Mint was pretty much our source of truth and where the process of
           our books would begin. Then, as we found time, we&apos;d use
           Mint&apos;s transaction search functionality to look for all of our
@@ -156,7 +148,7 @@ export const projects: Project[] = [
           fact that we kept buying more rentals, which meant more data to
           import!
         </p>
-        <p className=" mb-4">
+        <p>
           While this original system had it&apos;s obvious flaws and relied very
           heavily on my pure will to complete this unfortunate task, it did work
           for us for several years before I finally decided enough was enough.
@@ -164,19 +156,13 @@ export const projects: Project[] = [
           I&apos;m conscious of.
         </p>
 
-        <h2 className="text-2xl mb-2" id="how-it-is-now">
-          How it is now
-        </h2>
-        <p className="mb-4">
+        <h2 id="how-it-is-now">How it is now</h2>
+        <p>
           While this original system had it&apos;s obvious flaws and relied very
           heavily on my pure will to complete this unfortunate task, it did work
           for us for several years before I finally decided enough was enough. I
           began actually building out an export application on top of{' '}
-          <Link
-            href="https://www.electronjs.org/"
-            className="underline"
-            target="_blank"
-          >
+          <Link href="https://www.electronjs.org/" target="_blank">
             Electron
           </Link>
           &nbsp; to basically scrape the data from our Mint account into a CSV
@@ -186,11 +172,7 @@ export const projects: Project[] = [
           Credit Karma. This was obviously quite annoying because I just built a
           tool to integrate with Mint and now it feels like I&apos;m back to the
           drawing board. Upon a bit of exploration, Kelley and I decided to give{' '}
-          <Link
-            href="https://www.monarchmoney.com/"
-            className="underline"
-            target="_blank"
-          >
+          <Link href="https://www.monarchmoney.com/" target="_blank">
             Monarch Money
           </Link>{' '}
           a try. We fairly quickly began to enjoy the features of Monarch,
@@ -199,16 +181,12 @@ export const projects: Project[] = [
           new system of tags that now allows us to do a lot of things with the
           data we&apos;re pulling.
         </p>
-        <h3 className="font-bold mb-2">
-          Here&apos;s an overview of what we can do now very easily:
-        </h3>
+        <h3>Here&apos;s an overview of what we can do now very easily:</h3>
         <ul className="list-disc flex flex-col align-middle list-inside text-left mb-2">
           <li>Generate on-demand P&L statements by property.</li>
           <li>
             Filter reports by{' '}
-            <Link className="underline" href="#transactions-types">
-              transaction type
-            </Link>
+            <Link href="#transactions-types">transaction type</Link>
           </li>
           <li>Quickly find out capitalizable expenses for the year</li>
           <li>
@@ -216,7 +194,7 @@ export const projects: Project[] = [
             each month
           </li>
         </ul>
-        <h3 className="text-xl">How it works</h3>
+        <h3>How it works</h3>
         <div className="grid gap-x-16 gap-y-8 grid-cols-1 my-4 md:grid-cols-2">
           {[
             'Data export started -- run every 1 hour on a schedule',
@@ -239,7 +217,7 @@ export const projects: Project[] = [
           ))}
         </div>
 
-        <p className="mb-4">
+        <p>
           Now that all of this is setup, every single hour, on the hour, I get
           updates to my Google sheet with any new transactions that were
           performed. See below for a slimmed down version of the results of the
@@ -250,31 +228,26 @@ export const projects: Project[] = [
           src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSOh_aR3EEg3vO9TwSLDaUi1CDT1X_U4JsHhp1ziisxKAj6nuxjYjT_PmFcuFS2FPUwsztnXwpfVIoC/pubhtml?gid=400669900&amp;single=true&amp;widget=true&amp;headers=false"
         />
         <p>
-          So in the{' '}
-          <Link className="underline" href="#data-formatter-diagram">
-            diagram above
-          </Link>{' '}
+          So in the <Link href="#data-formatter-diagram">diagram above</Link>{' '}
           the step where we actually parse/format the CSV file from Monarch,
           there&apos;s a bit of interesting pieces going on. Because of the tags
           in monarch we can assign a property and a transaction type to our data
           going in to sheets.
         </p>
 
-        <h3 className="text-xl my-4" id="transactions-types">
-          Transaction Types
-        </h3>
-        <div className="">
+        <h3 id="transactions-types">Transaction Types</h3>
+        <div>
           {transactionTypes.map((tx) => (
-            <p key={tx.name} className="mb-2">
+            <p key={tx.name}>
               <span className="font-bold">{tx.name}: </span> {tx.description}
             </p>
           ))}
         </div>
 
-        <h3 className="text-xl my-4" id="transactions-types">
+        <h3 id="transactions-types">
           How does the System determine transaction types
         </h3>
-        <p className="mb-2">
+        <p>
           Simply enough, to determine a particular transaction&apos;s type, we
           use the tags to determine that. The logic can be found below
         </p>
@@ -332,10 +305,8 @@ export const projects: Project[] = [
             </tbody>
           </table>
         </div>
-        <h3 className="text-xl my-4" id="taxes">
-          Taxes
-        </h3>
-        <p className="pb-4">
+        <h3 id="taxes">Taxes</h3>
+        <p>
           Now with this new system I&apos;m also able to send my capitalizable
           expenses (which are also tracked by tags) report, portfolio P&L
           report, and my realtor P&L report to my accountant and have the hard
@@ -354,38 +325,34 @@ export const projects: Project[] = [
     title: 'Custom Business Phone to Replace RingCentral',
     component: (
       <div className="w-full">
-        <h2 className="text-2xl mb-2" id="the-problem">
-          The Problem
-        </h2>
-        <p className="mb-4">
+        <h2 id="the-problem">The Problem</h2>
+        <p>
           My wife and I have been managing rentals for quite some time now, and
           one of the tools we&apos;ve been using for a while is{' '}
-          <Link href="https://ringcentral.com" className="underline">
-            RingCentral
-          </Link>{' '}
-          as a business phone offering. The primary issues we were running into
-          with not having a centralized number include:
+          <Link href="https://ringcentral.com">RingCentral</Link> as a business
+          phone offering. The primary issues we were running into with not
+          having a centralized number include:
         </p>
-        <ul className="list-disc list-inside text-left">
-          <li className="mb-2">
+        <ul className="text-left">
+          <li>
             <span className="font-bold">Privacy:</span> posting our personal
             numbers on the rental listings and legal documents was not desired.
           </li>
-          <li className="mb-2">
+          <li>
             <span className="font-bold">Professionalism:</span> having a
             dedicated business number helps maintain a professional image.
           </li>
-          <li className="mb-2">
+          <li>
             <span className="font-bold">Call Management:</span> it was difficult
             to manage and track calls related to the business when using
             personal numbers.
           </li>
-          <li className="mb-2">
+          <li>
             <span className="font-bold">Separation:</span> keeping business and
             personal communications separate was important for work-life
             balance.
           </li>
-          <li className="mb-2">
+          <li>
             <span className="font-bold">Verification Codes:</span> a lot of our
             different systems (banks, supply houses, etc...) will send a
             verification code to a phone number on file. Having a shared number
@@ -393,7 +360,7 @@ export const projects: Project[] = [
             the other person to share the code.
           </li>
         </ul>
-        <p className="mb-4">
+        <p>
           While RingCentral supported texting and had a lot of great features,
           it came with some pretty considerable drawbacks. For one, the texting
           worked, but it did not work for the shared number. This meant we were
@@ -403,19 +370,15 @@ export const projects: Project[] = [
           it was not very good. Lastly, the cost was pretty high for what we
           were getting out of it.
         </p>
-        <h2 className="text-2xl mb-2" id="the-solution">
-          The Solution
-        </h2>
+        <h2 id="the-solution">The Solution</h2>
         <p>
           After a bit of ideation, I decided to build a custom business phone
           tailored to our needs that addressed our specific problems. The way
           the system works is pretty simple. We have a single phone number that
           behaves in the following way:
         </p>
-        <h3 className="text-xl mt-2">Incoming Phone Call</h3>
-        <p className="font-bold m-1">
-          A call is received from a non-agent number
-        </p>
+        <h3>Incoming Phone Call</h3>
+        <p className="font-bold">A call is received from a non-agent number</p>
         <p>
           A non-agent number consists of any number that is not my wife or
           I&apos;s number. When this occurs, both of our phones will ring.
@@ -424,9 +387,7 @@ export const projects: Project[] = [
           they reach voicemail, the caller will prompted to leave a message. The
           voice message, if left, will be transcribed, and sent in an email
           along with the audio to our shared business email.
-          <p className="font-bold m-1">
-            A call is received from an agent number
-          </p>
+          <p className="font-bold">A call is received from an agent number</p>
           An agent phone number is either my wife or I&apos;s personal number.
           When this occurs, the admin IVR menu will take over. We have two
           options currently included in this menu. The first option is to call
@@ -436,33 +397,30 @@ export const projects: Project[] = [
           conveniently behind the caller id of the business, maintaining the
           privacy of our personal numbers.
         </p>
-        <h3 className="text-xl mt-2">Incoming Text Message</h3>
+        <h3>Incoming Text Message</h3>
         <p>
-          Texts are a bit more simple. When a text is received, the contents and
-          sender of the message will be sent via email to the business email. To
-          reply, we simply reply to the email and it sends that back as a text
-          to the original sender. This is a bit of a hacky solution, but it
-          avoided our need to build a whole new mobile app to faciliate text
-          communications from our business number. It fully supports images as
-          well!
+          Texts are a bit more simple. When a text is received,nd sender of the
+          message will be sent via email to the business email. To reply, we
+          simply reply to the email and it sends that back as a text to the
+          original sender. This is a bit of a hacky solution, but it avoided our
+          need to build a whole new mobile app to faciliate text communications
+          from our business number. It fully supports images as well!
         </p>
         <Outro />
 
-        <h2 className="text-2xl mt-4">
-          Interested in the technical details? Keep reading!
-        </h2>
+        <h2>Interested in the technical details? Keep reading!</h2>
 
-        <h3 className="text-xl mt-4">Intro</h3>
+        <h3>Intro</h3>
 
         <p>
           The following technologies were used to build the custom business
           phone:
         </p>
-        <ul className="list-disc list-inside text-left mb-4">
+        <ul className="text-left">
           <li>Twilio - SMS/Phone technology</li>
           <li>
             AWS:
-            <ul className="list-inside">
+            <ul>
               <li>
                 API Gateway - used to route requests to the serverless
                 endpoints.
@@ -501,18 +459,18 @@ export const projects: Project[] = [
           subject—surely Gmail will just thread that. But that&apos;s definitely
           not how it went down.”
         </p>
-        <h3 className="text-xl mt-4">Gmail and Threading</h3>
+        <h3>Gmail and Threading</h3>
         <p>
           My main desire was the text emails to thread similarly to how they
           would in all SMS apps. There&apos;s at least one major requirement in
           order to make Gmail understand that that an email is a reply to
-          another email. The <CodeSpan>In-Reply-To</CodeSpan> and{' '}
-          <CodeSpan>References</CodeSpan> headers. The catch about those headers
-          is that you need to set them to the message id of the email you want
-          to thread with. Obviously, the email client handled that for free, as
-          it always does when we were sending emails out. But when the text
-          messages came in, we&apos;d have to associate the text with the last
-          email associated with the thread for that phone number. So basically,
+          another email. The <code>In-Reply-To</code> and{' '}
+          <code>References</code> headers. The catch about those headers is that
+          you need to set them to the message id of the email you want to thread
+          with. Obviously, the email client handled that for free, as it always
+          does when we were sending emails out. But when the text messages came
+          in, we&apos;d have to associate the text with the last email
+          associated with the thread for that phone number. So basically,
           everytime an email is either received by our business email, or a text
           is received and an email is sent to the business email, everything is
           stored in DynamoDB along with their message id. This way, as emails
@@ -527,8 +485,8 @@ export const projects: Project[] = [
           than new threads for every text.
         </p>
 
-        <h3 className="text-xl mt-4">MMS</h3>
-        <p className="font-bold my-1">
+        <h3>MMS</h3>
+        <p className="font-bold">
           Why are my email images not being sent over text?!
         </p>
         <p>
@@ -546,7 +504,6 @@ export const projects: Project[] = [
           <Link
             target="_blank"
             href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-action-sns.html"
-            className="underline"
           >
             this AWS documentation page
           </Link>{' '}
@@ -557,7 +514,7 @@ export const projects: Project[] = [
           SNS topic which pulls the full email from S3 and processes it from
           there.
         </p>
-        <p className="font-bold my-1">
+        <p className="font-bold">
           Twilio&apos;s API for sending texts uses URLS. How do I faciliate
           that?
         </p>
@@ -565,20 +522,19 @@ export const projects: Project[] = [
           Following{' '}
           <Link
             target="_blank"
-            className="underline"
             href="https://www.twilio.com/docs/messaging/tutorials/how-to-send-sms-messages/node#send-a-message-containing-media-mms-in-nodejs"
           >
             the tutorial available on Twilio&apos;s website,
           </Link>
-          &nbsp;the <CodeSpan>mediaUrl</CodeSpan> property is an array of urls
-          to the files needing attached to the text. Given this need, the images
-          that are received by SES need to be publicly available for Twilio to
-          be able to send them. It works as follows: once an email is received
-          with images via the SES email, those images are parsed and stored in
-          S3. Once stored in S3, presigned urls are generated for each image and
-          then those URLs are sent along in the <CodeSpan>mediaUrl</CodeSpan>{' '}
-          property. This gives us time-based authorization for links so Twilio
-          can access them and send them along!
+          &nbsp;the <code>mediaUrl</code> property is an array of urls to the
+          files needing attached to the text. Given this need, the images that
+          are received by SES need to be publicly available for Twilio to be
+          able to send them. It works as follows: once an email is received with
+          images via the SES email, those images are parsed and stored in S3.
+          Once stored in S3, presigned urls are generated for each image and
+          then those URLs are sent along in the <code>mediaUrl</code> property.
+          This gives us time-based authorization for links so Twilio can access
+          them and send them along!
         </p>
         <p>
           Considering the images are only needed for a short period of time, I

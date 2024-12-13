@@ -27,11 +27,11 @@ export default function Home() {
           height={400}
         />
       </div>
-      <h1 className="text-3xl ">Hi, I&apos;m Brandon.</h1>
-      <p className="text-gray-400 text-xs mb-4 italic font-bold">
+      <h1>Hi, I&apos;m Brandon.</h1>
+      <p className="text-gray-400 text-sm italic font-bold">
         Last updated: {getFormattedDate(new Date())}
       </p>
-      <p className="mb-2">
+      <p>
         &emsp;As you can see in the picture above, first and foremost I&apos;m a
         father and a husband. Elsie and Judd (Judson) are very large parts of my
         life as you can imagine. Let&apos;s not forget my amazing wife, Kelley,
@@ -67,8 +67,8 @@ export default function Home() {
         it.
       </p>
 
-      <h1 className="text-3xl mt-8 mb-4">Interests</h1>
-      <div className="flex flex-1 w-full justify-center text-center pb-4">
+      <h1>Interests</h1>
+      <div className="flex flex-1 w-full justify-center text-center">
         {[...interests]
           .map((x) => ` - ${x}`)
           .join('')

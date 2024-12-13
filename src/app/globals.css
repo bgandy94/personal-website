@@ -26,11 +26,15 @@
     @apply text-[17px] my-2;
   }
   h1 {
-    @apply text-[2.5rem];
+    @apply text-[2.25rem] leading-tight;
   }
 
   h2 {
     @apply text-[2rem] my-2;
+  }
+
+  h3 {
+    @apply text-[1.75rem] my-2;
   }
 
   ul {
@@ -42,9 +46,6 @@
 
   hr {
     @apply w-full my-4 border-gray-400  border-t-2;
-  }
-  h3 {
-    @apply text-[1.75rem] my-2;
   }
   a {
     @apply underline;

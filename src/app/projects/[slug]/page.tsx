@@ -47,11 +47,11 @@ export default async function Projects(props: {
 
   return (
     <div className="flex flex-col items-center text-center px-2 md:px-0 pb-8 w-full max-w-[50rem]">
-      <h1 className="text-3xl mb-4">{title}</h1>
-      <h2 className="text-lg mb-4 italic text-gray-300">
+      <h1>{title}</h1>
+      <p className="mt-2 italic text-gray-300">
         {`${getFormattedDate(start)} - ${end ? getFormattedDate(end) : 'current'}`}
-      </h2>
-      <hr className="text-white w-full my-4" />
+      </p>
+      <hr />
       {component}
     </div>
   )

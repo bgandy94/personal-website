@@ -16,8 +16,8 @@ export default function Projects() {
 
   return (
     <>
-      <h1 className="text-3xl mb-4">Projects</h1>
-      <ul className="list-inside">
+      <h1>Projects</h1>
+      <ul className="list-none">
         {projects
           .filter((p) => isDev || !p.draft)
           .map((project) => (

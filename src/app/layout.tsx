@@ -20,7 +20,7 @@ const Nav = () => {
       ].map(([title, path]) => (
         <Link
           key={title}
-          className="hover:font-bold cursor-pointer h-full ml-5 leading-[3rem]"
+          className="hover:font-bold cursor-pointer h-full ml-5 leading-[3rem] no-underline"
           href={path}
         >
           {title}

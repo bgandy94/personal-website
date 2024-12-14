@@ -399,12 +399,13 @@ export const projects: Project[] = [
         </p>
         <h3>Incoming Text Message</h3>
         <p>
-          Texts are a bit more simple. When a text is received,nd sender of the
-          message will be sent via email to the business email. To reply, we
-          simply reply to the email and it sends that back as a text to the
-          original sender. This is a bit of a hacky solution, but it avoided our
-          need to build a whole new mobile app to faciliate text communications
-          from our business number. It fully supports images as well!
+          Texts are a bit more simple. When a text is received, the contents and
+          the phone number of the message will be sent via email to the business
+          email. To reply, we simply reply to the email and it sends that back
+          as a text to the original sender. This is a bit of a hacky solution,
+          but it avoided our need to build a whole new mobile app to faciliate
+          text communications from our business number. It fully supports images
+          as well!
         </p>
         <Outro />
 
@@ -446,7 +447,7 @@ export const projects: Project[] = [
           this thing up and running as quick as possible.{' '}
           <span className="font-bold">No custom mobile app.</span> One of the
           major issues of building a custom app is building it in such a way
-          that the lovely team at Apple would approve to be put put on the Apple
+          that the lovely team at Apple would approve to be put on the Apple
           Store, or pay for various tools like TestFlight and really hack it
           onto my wife&apos;s phone. I wanted to avoid all of that, so after
           chatting with a couple of my buddies in tech, the idea of using email
@@ -457,7 +458,7 @@ export const projects: Project[] = [
           exchanges together. This was more complicated than I had originally
           anticipated. The naive part of me thought: same sender, same
           subject—surely Gmail will just thread that. But that&apos;s definitely
-          not how it went down.”
+          not how it went down.
         </p>
         <h3>Gmail and Threading</h3>
         <p>
@@ -537,9 +538,8 @@ export const projects: Project[] = [
           them and send them along!
         </p>
         <p>
-          Considering the images are only needed for a short period of time, I
-          also setup auto-deletion on the objects within that bucket to happen
-          to everything that is older than 24 hours.
+          Since the images are only needed temporarily, I configured the bucket
+          to automatically delete any objects that are older than 24 hours.
         </p>
       </div>
     ),

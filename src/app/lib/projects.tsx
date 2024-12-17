@@ -1,6 +1,11 @@
+import { ReactFlow, Background, Edge, Node, Position } from '@xyflow/react'
 import Link from 'next/link'
-import React, { CSSProperties, PropsWithChildren } from 'react'
+import React, { CSSProperties } from 'react'
 
+// something is wrong with Position enum, undefined at runtime
+const strToPosition = (str: 'top' | 'right' | 'bottom' | 'left'): Position => {
+  return str as Position
+}
 export type Project = {
   slug: string
   component: React.JSX.Element
@@ -379,6 +384,82 @@ export const projects: Project[] = [
         </p>
         <h3>Incoming Phone Call</h3>
         <p className="font-bold">A call is received from a non-agent number</p>
+        {(() => {
+          console.log(`MyEnum.Topper: ${Position.Right}`)
+          const initialNodes: Node[] = [
+            {
+              id: '1',
+              position: { x: 350, y: 10 },
+              type: 'input',
+              data: { label: 'Incoming Customer Call!' },
+            },
+            {
+              id: '2',
+              position: { x: 350, y: 100 },
+              data: { label: 'Custom Phone System' },
+            },
+            {
+              id: '3',
+              position: { x: 175, y: 200 },
+              data: { label: 'Agent 1' },
+            },
+            {
+              id: '4',
+              position: { x: 525, y: 200 },
+              data: { label: 'Agent 2' },
+            },
+            {
+              id: '5',
+              position: { x: 350, y: 300 },
+              data: { label: 'Answered?' },
+            },
+          ]
+          const initialEdges: Edge[] = [
+            {
+              id: 'e1-2',
+              source: '1',
+              target: '2',
+              type: 'bezier',
+              animated: true,
+            },
+
+            {
+              id: 'e2-3',
+              source: '2',
+              target: '3',
+              type: 'bezier',
+              animated: true,
+            },
+            {
+              id: 'e2-4',
+              source: '2',
+              target: '4',
+              type: 'bezier',
+              animated: true,
+            },
+            {
+              id: 'e4-5',
+              source: '4',
+              target: '5',
+              type: 'bezier',
+              animated: true,
+            },
+            {
+              id: 'e3-5',
+              source: '3',
+              target: '5',
+              type: 'bezier',
+              animated: true,
+            },
+          ]
+          return (
+            <div className="w-full h-48 bg-gray-600">
+              <ReactFlow nodes={initialNodes} edges={initialEdges}>
+                <Background />
+              </ReactFlow>
+            </div>
+          )
+        })()}
         <p>
           A non-agent number consists of any number that is not my wife or
           I&apos;s number. When this occurs, both of our phones will ring.

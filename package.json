@@ -10,9 +10,10 @@
   },
   "dependencies": {
     "@next/env": "^15.0.3",
+    "@xyflow/react": "^12.3.5",
     "aws-cdk-lib": "^2.170.0",
     "constructs": "^10.4.2",
-    "next": "15.0.3",
+    "next": "15.1.0",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106"
   },

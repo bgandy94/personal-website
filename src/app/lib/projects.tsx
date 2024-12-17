@@ -387,7 +387,9 @@ export const projects: Project[] = [
           they reach voicemail, the caller will prompted to leave a message. The
           voice message, if left, will be transcribed, and sent in an email
           along with the audio to our shared business email.
-          <p className="font-bold">A call is received from an agent number</p>
+          <span className="font-bold">
+            A call is received from an agent number
+          </span>
           An agent phone number is either my wife or I&apos;s personal number.
           When this occurs, the admin IVR menu will take over. We have two
           options currently included in this menu. The first option is to call
@@ -399,13 +401,14 @@ export const projects: Project[] = [
         </p>
         <h3>Incoming Text Message</h3>
         <p>
-          Texts are a bit more simple. When a text is received, the contents and
-          the phone number of the message will be sent via email to the business
-          email. To reply, we simply reply to the email and it sends that back
-          as a text to the original sender. This is a bit of a hacky solution,
-          but it avoided our need to build a whole new mobile app to faciliate
-          text communications from our business number. It fully supports images
-          as well!
+          Text messages are handled by routing incoming texts to our business
+          email, including the sender&apos;s phone number and the message
+          contents. To reply, we respond directly to the email, and the system
+          converts our email reply into a text sent to the original sender.
+          While this approach is unconventional, it eliminates the need for a
+          custom mobile app, saving development time and costs. Additionally,
+          the system supports MMS, enabling images to be sent and received
+          seamlessly.
         </p>
         <Outro />
 

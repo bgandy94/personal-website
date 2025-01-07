@@ -321,7 +321,6 @@ export const projects: Project[] = [
   {
     slug: 'custom-business-phone',
     dates: { start: new Date(2024, 9, 3), end: new Date(2024, 10, 12) },
-    draft: true,
     title: 'Custom Business Phone to Replace RingCentral',
     component: (
       <div className="w-full">

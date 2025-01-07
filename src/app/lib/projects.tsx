@@ -18,7 +18,7 @@ const Outro = () => (
     <p>
       If you have any questions, thoughts on improving this process, or want to
       get in touch to see if there&apos;s something I can automate for you,
-      please reach out to me at{' '}
+      please reach out to me at&nbsp;
       <Link href="mailto:brandongandy2012@Gmail.com">
         brandongandy2012@Gmail.com
       </Link>
@@ -118,7 +118,7 @@ export const projects: Project[] = [
         <p>
           I&apos;ve been doing rentals now since February of 2018, and one of
           the things I always dread every year is taxes. Before ever getting in
-          to real estate, I adopted a technology called{' '}
+          to real estate, I adopted a technology called&nbsp;
           <Link href="https://Mint.intuit.com/">Mint</Link>. It was a pretty
           amazing tool to help me and my wife understand where our money was
           going and even do things like budgeting. Once we began buying rentals,
@@ -161,7 +161,7 @@ export const projects: Project[] = [
           While this original system had it&apos;s obvious flaws and relied very
           heavily on my pure will to complete this unfortunate task, it did work
           for us for several years before I finally decided enough was enough. I
-          began actually building out an export application on top of{' '}
+          began actually building out an export application on top of&nbsp;
           <Link href="https://www.electronjs.org/" target="_blank">
             Electron
           </Link>
@@ -171,21 +171,22 @@ export const projects: Project[] = [
           announces its shutting down and transferring those who want to over to
           Credit Karma. This was obviously quite annoying because I just built a
           tool to integrate with Mint and now it feels like I&apos;m back to the
-          drawing board. Upon a bit of exploration, Kelley and I decided to give{' '}
+          drawing board. Upon a bit of exploration, Kelley and I decided to
+          give&nbsp;
           <Link href="https://www.monarchmoney.com/" target="_blank">
             Monarch Money
-          </Link>{' '}
-          a try. We fairly quickly began to enjoy the features of Monarch,
-          including their Mint migration tool, which made tranferring our data
-          out of Mint and into Monarch super easy. We pretty quickly devised a
-          new system of tags that now allows us to do a lot of things with the
-          data we&apos;re pulling.
+          </Link>
+          &nbsp; a try. We fairly quickly began to enjoy the features of
+          Monarch, including their Mint migration tool, which made tranferring
+          our data out of Mint and into Monarch super easy. We pretty quickly
+          devised a new system of tags that now allows us to do a lot of things
+          with the data we&apos;re pulling.
         </p>
         <h3>Here&apos;s an overview of what we can do now very easily:</h3>
         <ul className="list-disc flex flex-col align-middle list-inside text-left mb-2">
           <li>Generate on-demand P&L statements by property.</li>
           <li>
-            Filter reports by{' '}
+            Filter reports by&nbsp;
             <Link href="#transactions-types">transaction type</Link>
           </li>
           <li>Quickly find out capitalizable expenses for the year</li>
@@ -228,11 +229,11 @@ export const projects: Project[] = [
           src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSOh_aR3EEg3vO9TwSLDaUi1CDT1X_U4JsHhp1ziisxKAj6nuxjYjT_PmFcuFS2FPUwsztnXwpfVIoC/pubhtml?gid=400669900&amp;single=true&amp;widget=true&amp;headers=false"
         />
         <p>
-          So in the <Link href="#data-formatter-diagram">diagram above</Link>{' '}
-          the step where we actually parse/format the CSV file from Monarch,
-          there&apos;s a bit of interesting pieces going on. Because of the tags
-          in monarch we can assign a property and a transaction type to our data
-          going in to sheets.
+          So in the <Link href="#data-formatter-diagram">diagram above</Link>
+          &nbsp; the step where we actually parse/format the CSV file from
+          Monarch, there&apos;s a bit of interesting pieces going on. Because of
+          the tags in monarch we can assign a property and a transaction type to
+          our data going in to sheets.
         </p>
 
         <h3 id="transactions-types">Transaction Types</h3>
@@ -327,7 +328,7 @@ export const projects: Project[] = [
         <h2 id="the-problem">The Problem</h2>
         <p>
           My wife and I have been managing rentals for quite some time now, and
-          one of the tools we&apos;ve been using for a while is{' '}
+          one of the tools we&apos;ve been using for a while is&nbsp;
           <Link href="https://ringcentral.com">RingCentral</Link> as a business
           phone offering. The primary issues we were running into with not
           having a centralized number include:
@@ -381,23 +382,30 @@ export const projects: Project[] = [
         <p>
           A non-agent number consists of any number that is not my wife or
           I&apos;s number. When this occurs, both of our phones will ring.
-          Whoever picks up first gets to answer the call. If neither of us
-          answer the call in time, the call will be forwarded to voicemail. Once
-          they reach voicemail, the caller will prompted to leave a message. The
-          voice message, if left, will be transcribed, and sent in an email
-          along with the audio to our shared business email.
-          <span className="font-bold">
-            A call is received from an agent number
-          </span>
+          Whoever picks up first receives the call. If neither of us answer the
+          call in time, the call will be forwarded to voicemail. Once they reach
+          voicemail, the caller will prompted to leave a message. The voice
+          message, if left, will be transcribed, and sent in an email along with
+          the audio to our shared business email.
+          <p className="font-bold">A call is received from an agent number</p>
           An agent phone number is either my wife or I&apos;s personal number.
-          When this occurs, the admin IVR menu will take over. We have two
-          options currently included in this menu. The first option is to call
-          the last number that called the business (excluding ourselves
-          obviously), and the second is to make a call as the business number.
-          Both of these options give us the optionality to make calls fairly
-          conveniently behind the caller id of the business, maintaining the
-          privacy of our personal numbers.
+          When this occurs, an IVR menu (press 1 to x, press 2 to y) will be
+          reached that includes the following options:
         </p>
+        <ol className="text-left">
+          <li>
+            <span className="font-bold">Redial the last non-agent number.</span>
+            &nbsp; This allows us to easily redial callers when we missed their
+            call.
+          </li>
+          <li>
+            <span className="font-bold">
+              Make a call as the business number.
+            </span>
+            &nbsp; This allows us to make calls behind the business number,
+            maintaining the privacy of our personal numbers.
+          </li>
+        </ol>
         <h3>Incoming Text Message</h3>
         <p>
           Text messages are handled by routing incoming texts to our business
@@ -446,7 +454,7 @@ export const projects: Project[] = [
           Looking at that list of tech, I&apos;m sure the question that
           instantly comes to mind is, how did this get so complicated? Well
           there was one particularly major thing I was trying to avoid to get
-          this thing up and running as quick as possible.{' '}
+          this thing up and running as quick as possible.&nbsp;
           <span className="font-bold">No custom mobile app.</span> One of the
           major issues of building a custom app is building it in such a way
           that the lovely team at Apple would approve to be put on the Apple
@@ -464,10 +472,10 @@ export const projects: Project[] = [
         </p>
         <h3>Gmail and Threading</h3>
         <p>
-          My main desire was the text emails to thread similarly to how they
-          would in all SMS apps. There&apos;s at least one major requirement in
-          order to make Gmail understand that that an email is a reply to
-          another email. The <code>In-Reply-To</code> and{' '}
+          My main desire was to have the text emails thread similarly to how
+          they would in all SMS/email apps. There&apos;s at least one major
+          requirement in order to make Gmail understand that that an email is a
+          reply to another email. The <code>In-Reply-To</code> and&nbsp;
           <code>References</code> headers. The catch about those headers is that
           you need to set them to the message id of the email you want to thread
           with. Obviously, the email client handled that for free, as it always
@@ -503,26 +511,26 @@ export const projects: Project[] = [
           system as it was, I finally decided to re-address the problem and give
           it another look. Based on everything I could find, Twilio&apos;s image
           size limits were way larger than what I was sending, as was SES&apos;s
-          (seemingly). I finally tripped on{' '}
+          (seemingly). I finally tripped on&nbsp;
           <Link
             target="_blank"
             href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-action-sns.html"
           >
             this AWS documentation page
-          </Link>{' '}
-          that finally gave me the answer I was looking for. Apparently, if you
-          drop an SES event directly on to SNS, it drastically reduces your
-          email size limit, all the way down to 150KB. After discovering this, I
-          adjusted the SES receipt rule to put it on S3, and then trigger the
-          SNS topic which pulls the full email from S3 and processes it from
-          there.
+          </Link>
+          &nbsp; that finally gave me the answer I was looking for. Apparently,
+          if you drop an SES event directly on to SNS, it drastically reduces
+          your email size limit, all the way down to 150KB. After discovering
+          this, I adjusted the SES receipt rule to put it on S3, and then
+          trigger the SNS topic which pulls the full email from S3 and processes
+          it from there.
         </p>
         <p className="font-bold">
           Twilio&apos;s API for sending texts uses URLS. How do I faciliate
           that?
         </p>
         <p>
-          Following{' '}
+          Following&nbsp;
           <Link
             target="_blank"
             href="https://www.twilio.com/docs/messaging/tutorials/how-to-send-sms-messages/node#send-a-message-containing-media-mms-in-nodejs"

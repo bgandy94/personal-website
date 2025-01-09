@@ -152,21 +152,18 @@ export const projects: Project[] = [
           While this original system had it&apos;s obvious flaws and relied very
           heavily on my pure will to complete this unfortunate task, it did work
           for us for several years before I finally decided enough was enough.
-          Being in software, automating manual tasks is always something
-          I&apos;m conscious of.
         </p>
 
         <h2 id="how-it-is-now">How it is now</h2>
         <p>
-          While this original system had it&apos;s obvious flaws and relied very
-          heavily on my pure will to complete this unfortunate task, it did work
-          for us for several years before I finally decided enough was enough. I
-          began actually building out an export application on top of&nbsp;
+          Being in software, automating manual tasks is always something
+          I&apos;m conscious of. I began actually building out an export
+          application on top of&nbsp;
           <Link href="https://www.electronjs.org/" target="_blank">
             Electron
           </Link>
           &nbsp; to basically scrape the data from our Mint account into a CSV
-          that I could then use to in Google sheets to generate P&L reports with
+          that I could then use in Google sheets to generate P&L reports with
           pivot tables. Then, come roughly October or November of 2023, Mint
           announces its shutting down and transferring those who want to over to
           Credit Karma. This was obviously quite annoying because I just built a

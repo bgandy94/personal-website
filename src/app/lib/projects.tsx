@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import React, { CSSProperties, PropsWithChildren } from 'react'
+import React, { CSSProperties } from 'react'
 
 export type Project = {
   slug: string

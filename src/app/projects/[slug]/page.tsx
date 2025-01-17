@@ -1,6 +1,5 @@
 import { getFormattedDate } from '@/src/app/lib/date'
 import { Project, projects } from '@/src/app/lib/projects'
-import { loadEnvConfig } from '@next/env'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import React from 'react'

@@ -17,6 +17,7 @@ const Nav = () => {
       {[
         ['Home', '/'],
         ['Projects', '/projects'],
+        ['Resume', '/resume'],
       ].map(([title, path]) => (
         <Link
           key={title}
@@ -63,7 +64,7 @@ export default function RootLayout({
       <body className={inter.className + ' bg-background text-white'}>
         <Nav />
 
-        <main className="h-screen flex items-center flex-col color-primary px-4 py-4">
+        <main className="h-[calc(100vh-48px)] flex items-center flex-col color-primary px-4 py-4">
           {children}
         </main>
       </body>

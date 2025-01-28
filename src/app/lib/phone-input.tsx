@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 interface PhoneInputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
   value?: string
+  // eslint-disable-next-line no-unused-vars
   onChange?: (value: string) => void
 }
 const formatPhoneNumber = (value: string): string => {

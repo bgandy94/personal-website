@@ -51,6 +51,20 @@ const skills = [
   'Splunk / Cloudwatch',
 ]
 
+type Education = {
+  university: string
+  fieldOfStudy: string
+  degreeType: 'bachelors'
+  honors: string
+}
+
+const degreeTypeLabelMap: Record<Education['degreeType'], string> = {
+  bachelors: "Bachelor's",
+}
+
+const generateDegreeAndFieldOfStudy = (education: Education): string =>
+  `${degreeTypeLabelMap[education.degreeType]} in ${education.fieldOfStudy}`
+
 type WorkExperience = {
   order: number
   startDate: Date
@@ -128,6 +142,38 @@ const experiences: WorkExperience[] = [
   },
 ]
 
+type Resume = {
+  name: string
+  jobTitle: string
+  summary: string
+  education: Education
+  skills: string[]
+  experiences: WorkExperience[]
+}
+const resume: Resume = {
+  name: 'Brandon Gandy',
+  jobTitle: 'Software Engineering Leader',
+  summary:
+    'Results-driven engineer dedicated to inspiring and guiding teams and individuals toward peak performance. Deeply passionate about exploring the intricacies of technology, with a strong commitment to continuous learning. Excel at mentoring colleagues and steering teams, whether in a technical, managerial, or combined capacity. Proven team player with approximately 7-8 years of hands-on experience in the Agile software life-cycle. Outside of work, I indulge my interests in video games, hold an official real estate license in my state, and occasionally unwind by playing music.',
+  education: {
+    fieldOfStudy: 'Cyber Security',
+    degreeType: 'bachelors',
+    honors: 'Suma Cum Laude',
+    university: 'Oklahoma State University',
+  },
+  experiences,
+  skills,
+}
+
+const Education = ({ education }: { education: Education }) => (
+  <div>
+    <p className="text-xl mt-0">{education.university}</p>
+    <p className="my-0 text-md italic">
+      {generateDegreeAndFieldOfStudy(education)}
+    </p>
+    <p className="my-0 text-md italic">{education.honors}</p>
+  </div>
+)
 const formatDate = (date: Date): string =>
   `${date.getUTCMonth() + 1 < 10 ? '0' : ''}${date.getUTCMonth() + 1}/${date.getUTCFullYear()}`
 
@@ -135,88 +181,76 @@ const ResumePage = () => {
   const resumeBodyRef = useRef<HTMLDivElement>(null)
   const reactPrintFn = useReactToPrint({ contentRef: resumeBodyRef })
   return (
-    <div
-      ref={resumeBodyRef}
-      id="resume-body"
-      className="bg-white grid grid-cols-9 w-[70rem] text-gray-800 h-[90.5rem] font-mono"
-    >
-      <button
-        className="fixed print:hidden bg-primary p-2 text-white rounded-md bottom-20 left-20"
-        onClick={() => reactPrintFn()}
-      >
-        Print
-      </button>
-      <div className="col-span-3 grid grid-rows-10">
-        <div className="row-span-1 bg-sky-500 p-1 flex justify-center items-center text-white text-center flex-col">
-          <h3>Brandon Gandy</h3>
-          <p>Software Engineer</p>
-        </div>
-        <div className="bg-gray-700 text-white px-4 row-span-9">
-          <section>
-            <h3>Education</h3>
-            <hr className="my-2" />
-            <div>
-              <p className="text-xl mt-0">Oklahoma State University</p>
-              <p className="my-0 text-md italic">
-                Bachelor&apos;s in Cyber Security
-              </p>
-              <p className="my-0 text-md italic">Suma Cum Laude</p>
+    <div className="overflow-scroll w-full h-screen">
+      <div className="flex flex-col">
+        <div
+          ref={resumeBodyRef}
+          id="resume-body"
+          className="bg-white grid grid-cols-9 w-[1120px] self-start xl:self-center text-gray-800 h-[1448px] font-mono"
+        >
+          <button
+            className="fixed print:hidden bg-primary p-2 text-white rounded-md bottom-5 left-5 xl:bottom-20 xl:left-20"
+            onClick={() => reactPrintFn()}
+          >
+            Print
+          </button>
+          <div className="col-span-3 grid grid-rows-10">
+            <div className="row-span-1 bg-sky-500 p-1 flex text-white text-center flex-col">
+              <h3>{resume.name}</h3>
+              <p>{resume.jobTitle}</p>
             </div>
-          </section>
-          <section>
-            <h3>Skills</h3>
-            <hr className="my-2" />
-            {skills.map((skill) => (
-              <p className="my-0 text-sm" key={skill}>
-                {skill}
-              </p>
-            ))}
-          </section>
-        </div>
-      </div>
-      <div className="col-span-6 px-4">
-        <section>
-          <h3 className="mb-0 text-sky-500">Summary</h3>
-          <hr className="my-0 border-sky-500" />
-          <p>
-            Results-driven engineer dedicated to inspiring and guiding teams and
-            individuals toward peak performance. Deeply passionate about
-            exploring the intricacies of technology, with a strong commitment to
-            continuous learning. Excel at mentoring colleagues and steering
-            teams, whether in a technical, managerial, or combined capacity.
-            Proven team player with approximately 7-8 years of hands-on
-            experience in the Agile software life-cycle. Outside of work, I
-            indulge my interests in video games, hold an official real estate
-            license in my state, and occasionally unwind by playing music.
-          </p>
-        </section>
-        <section>
-          <h3 className="mb-0 text-sky-500">Work Experience</h3>
-          <hr className="my-0 border-sky-500" />
-          {experiences
-            .sort((a, b) => a.order - b.order)
-            .map((exp) => (
-              <div key={`${exp.title}${exp.company}`}>
-                <div className="flex justify-between mb-0">
-                  <p className="text-sky-500 text-sm mb-0">{exp.title}</p>
-                  <p className="text-sky-500 text-sm mb-0">
-                    {formatDate(exp.startDate)} -{' '}
-                    {exp.endDate ? formatDate(exp.endDate) : 'Present'}
+            <div className="bg-gray-700 text-white px-4 row-span-9">
+              <section>
+                <h3>Education</h3>
+                <hr className="my-2" />
+                <Education education={resume.education} />
+              </section>
+              <section>
+                <h3>Skills</h3>
+                <hr className="my-2" />
+                {skills.map((skill) => (
+                  <p className="my-0 text-sm" key={skill}>
+                    {skill}
                   </p>
-                </div>
-                <div>
-                  <p className="my-0 text-sm font-bold">{exp.company}</p>
-                  <ul className="marker:text-sky-500">
-                    {exp.accomplishments.map((accomplishment) => (
-                      <li className="my-0 text-sm" key={accomplishment}>
-                        {accomplishment}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-        </section>
+                ))}
+              </section>
+            </div>
+          </div>
+          <div className="col-span-6 px-4">
+            <section>
+              <h3 className="mb-0 text-sky-500">Summary</h3>
+              <hr className="my-0 border-sky-500" />
+              <p className="text-sm">{resume.summary}</p>
+            </section>
+            <section>
+              <h3 className="mb-0 text-sky-500">Work Experience</h3>
+              <hr className="my-0 border-sky-500" />
+              {experiences
+                .sort((a, b) => a.order - b.order)
+                .map((exp) => (
+                  <div key={`${exp.title}${exp.company}`}>
+                    <div className="flex justify-between mb-0">
+                      <p className="text-sky-500 text-sm mb-0">{exp.title}</p>
+                      <p className="text-sky-500 text-sm mb-0">
+                        {formatDate(exp.startDate)} -{' '}
+                        {exp.endDate ? formatDate(exp.endDate) : 'Present'}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="my-0 text-sm font-bold">{exp.company}</p>
+                      <ul className="marker:text-sky-500">
+                        {exp.accomplishments.map((accomplishment) => (
+                          <li className="my-0 text-sm" key={accomplishment}>
+                            {accomplishment}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ))}
+            </section>
+          </div>
+        </div>
       </div>
     </div>
   )

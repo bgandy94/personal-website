@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import { useReactToPrint } from 'react-to-print'
+import { generateFormattedTitle } from '../lib/metadata-helpers'
 
 const skills = [
   'Typescript / Javascript',
@@ -182,6 +183,7 @@ const ResumePage = () => {
   const reactPrintFn = useReactToPrint({ contentRef: resumeBodyRef })
   return (
     <div className="overflow-scroll w-full h-screen">
+      <title>{generateFormattedTitle('Resume')}</title>
       <div className="flex flex-col">
         <div
           ref={resumeBodyRef}

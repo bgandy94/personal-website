@@ -3,6 +3,8 @@
 import { useRef } from 'react'
 import { useReactToPrint } from 'react-to-print'
 import { generateFormattedTitle } from '../lib/metadata-helpers'
+import Image from 'next/image'
+import Link from 'next/link'
 
 const skills = [
   'Typescript / Javascript',
@@ -218,13 +220,13 @@ const ResumePage = () => {
               </section>
             </div>
           </div>
-          <div className="col-span-6 px-4">
+          <div className="col-span-6 px-4 flex flex-col">
             <section>
               <h3 className="mb-0 text-sky-500">Summary</h3>
               <hr className="my-0 border-sky-500" />
               <p className="text-sm">{resume.summary}</p>
             </section>
-            <section>
+            <section className="flex flex-1 flex-col">
               <h3 className="mb-0 text-sky-500">Work Experience</h3>
               <hr className="my-0 border-sky-500" />
               {experiences
@@ -250,6 +252,38 @@ const ResumePage = () => {
                     </div>
                   </div>
                 ))}
+              <div className="flex flex-1 flex-col justify-end">
+                <div className="flex items-center">
+                  <Image
+                    src="/gh-logo.png"
+                    alt="linkedin logo"
+                    width={30}
+                    height={30}
+                  />
+                  <Link
+                    target="_blank"
+                    className="ml-2"
+                    href="https://github.com/bgandy94"
+                  >
+                    https://github.com/bgandy94
+                  </Link>
+                </div>
+                <div className="flex items-center">
+                  <Image
+                    src="/linkedin-logo.png"
+                    alt="linkedin logo"
+                    width={30}
+                    height={30}
+                  />
+                  <Link
+                    target="_blank"
+                    className="ml-2"
+                    href="https://www.linkedin.com/in/brandongandy1"
+                  >
+                    https://www.linkedin.com/in/brandongandy1
+                  </Link>
+                </div>
+              </div>
             </section>
           </div>
         </div>

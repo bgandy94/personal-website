@@ -1,5 +1,5 @@
 import { getFormattedDate } from '@/src/app/lib/date'
-import { Project, projects } from '@/src/app/lib/projects'
+import { Project, projects } from '@/src/app/projects/projects'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import React from 'react'

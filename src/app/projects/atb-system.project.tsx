@@ -10,7 +10,6 @@ export const atbSystemProject: Project = {
     start: new Date('2025-02-13'),
     end: new Date('2025-02-13'),
   },
-  draft: true,
   component: (
     <div className="w-full">
       <h2>The Problem(s)</h2>

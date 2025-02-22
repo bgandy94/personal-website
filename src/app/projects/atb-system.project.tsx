@@ -20,8 +20,8 @@ export const atbSystemProject: Project = {
         fairly high.
       </p>
       <p>
-        Reaching out to all of my tenants individually was no small task,
-        espcially now with over ten properties, that&apos;s at least ten text
+        Reaching out to all of my tenants individually was no small task.
+        Espcially now with over ten properties, that&apos;s at least ten text
         messages that need to be sent. So I wanted to create a system that would
         allow me to send out a mass text message to all of my tenants to remind
         them of the precautions to take in order to minimize the chances of
@@ -35,12 +35,12 @@ export const atbSystemProject: Project = {
         <Link href="/projects/custom-business-phone">here</Link>.
       </p>
       <p>
-        One of the tricky parts of this project was where to store tenant
-        contact information. Like most responsible landlords, we have a Google
-        sheet where we store all of our tenant information. To avoid duplicative
-        sources of truth and the need to build a front-end to manage tenants, I
-        made the decision to see how bad it would be to just query the
-        spreadsheet. Surprisingly enough, it wasn&apos;t that bad.
+        One of the tricky parts of this project was deciding where to store
+        tenant contact information. Like most responsible landlords, we have a
+        Google sheet where we store all of our tenant information. To avoid
+        duplicative sources of truth and the need to build a front-end to manage
+        tenants, I made the decision to see how bad it would be to just query
+        the spreadsheet. Surprisingly enough, it wasn&apos;t that bad.
       </p>
 
       <h3>How it works</h3>

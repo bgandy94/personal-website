@@ -1,5 +1,5 @@
 import { getFormattedDate } from '@/src/app/lib/date'
-import { projects } from '@/src/app/lib/projects'
+import { projects } from '@/src/app/projects/projects'
 import { loadEnvConfig } from '@next/env'
 import { Metadata } from 'next'
 import Link from 'next/link'
@@ -20,6 +20,7 @@ export default function Projects() {
       <ul className="list-none">
         {projects
           .filter((p) => isDev || !p.draft)
+          .sort((a, b) => (a.dates.start > b.dates.start ? -1 : 1))
           .map((project) => (
             <li key={project.slug} className="mb-4">
               <span className="text-sm font-bold">

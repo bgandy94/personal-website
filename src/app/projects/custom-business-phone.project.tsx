@@ -8,6 +8,11 @@ export const customBusinessPhoneProject: Project = {
   title: 'Custom Business Phone to Replace RingCentral',
   component: (
     <div className="w-full">
+      <Link className="no-underline" href={'/projects/atb-system'}>
+        <div className="bg-sky-900 rounded-lg p-2">
+          <p>View project write-up for new ATB functionality!</p>
+        </div>
+      </Link>
       <h2 id="the-problem">The Problem</h2>
       <p>
         My wife and I have been managing rentals for quite some time now, and

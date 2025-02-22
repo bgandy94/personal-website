@@ -21,7 +21,7 @@ export const atbSystemProject: Project = {
       </p>
       <p>
         Reaching out to all of my tenants individually was no small task,
-        espcially now with over ten properties, that&apos;s at least text
+        espcially now with over ten properties, that&apos;s at least ten text
         messages that need to be sent. So I wanted to create a system that would
         allow me to send out a mass text message to all of my tenants to remind
         them of the precautions to take in order to minimize the chances of

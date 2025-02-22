@@ -21,7 +21,7 @@ export const atbSystemProject: Project = {
       </p>
       <p>
         Reaching out to all of my tenants individually was no small task,
-        espcially now with over ten properties, that&apos;s at least text
+        espcially now with over ten properties, that&apos;s at least ten text
         messages that need to be sent. So I wanted to create a system that would
         allow me to send out a mass text message to all of my tenants to remind
         them of the precautions to take in order to minimize the chances of
@@ -51,10 +51,11 @@ export const atbSystemProject: Project = {
         However, I run that code primarily on-demand as a script on my laptop.
         This project is hosted on AWS with API gateway and lambdas. So I had to
         find a way to authorize my lambda to be able to read my tenant contact
-        information spreadsheet, pull the numbers, and send out the texts. Now
-        anytime we update our tenant contact list spreadsheet, the phone system
-        automatically picks up any updates! We recently had a freeze, and we
-        only have one house have any issues. That&apos;s a shockingly low number
+        information spreadsheet, pull the numbers, and send out the texts. That
+        way anytime we update our tenant contact list spreadsheet, the phone
+        system automatically picks up any updates! After using the system for
+        the first time recently during a very serious winter freeze, we only had
+        one house have any issues. That&apos;s a shockingly low number
         considering the temps got below 10 degress Farenheit!
       </p>
       <div className="flex justify-center my-8">

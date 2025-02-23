@@ -87,7 +87,7 @@ const CircleWithNumber = ({
 export const booksAutomationProject: Project = {
   slug: 'rental-portfolio-books-automation',
   title: 'Automating my portfolio P&L with Monarch and Google Sheets',
-  dates: { start: new Date(2024, 0, 31) },
+  dates: { start: new Date('2024-01-31'), end: new Date('2024-03-01') },
   component: (
     <div className="w-full">
       <h2 id="how-it-started">How it started</h2>

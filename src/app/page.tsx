@@ -29,7 +29,7 @@ export default function Home() {
       </div>
       <h1>Hi, I&apos;m Brandon.</h1>
       <p className="text-gray-400 text-sm italic font-bold">
-        Last updated: {getFormattedDate(new Date())}
+        Last updated: {getFormattedDate(new Date(), true)}
       </p>
       <p>
         &emsp;As you can see in the picture above, first and foremost I&apos;m a

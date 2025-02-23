@@ -88,14 +88,16 @@ export const atbSystemProject: Project = {
           <span className="font-bold">
             Retrieve/store JSON key for service account.
           </span>{' '}
-          I took this key and stored it in a secure string in AWS Systems
-          Manager Parameter Store. I stringified it in, and parsed it out!
+          I took the key copied out of Google console and stored it in a secure
+          string in AWS Systems Manager Parameter Store. I stringified it in,
+          and parsed it out!
         </li>
       </ol>
       <h3>How to determine an ATB email from other text emails?</h3>
       <p>
         Nothing magic here! I decided on a particular string that denotes an
-        email as an ATB. What&apos;s the string you ask? ATB of course!
+        email as an ATB. What&apos;s the string you ask? &quot;ATB&quot; of
+        course!
       </p>
     </div>
   ),

@@ -4,7 +4,7 @@ import { Outro } from './components/outro'
 
 export const customBusinessPhoneProject: Project = {
   slug: 'custom-business-phone',
-  dates: { start: new Date(2024, 9, 3), end: new Date(2024, 10, 12) },
+  dates: { start: new Date('2024-10-03'), end: new Date('2024-11-12') },
   title: 'Custom Business Phone to Replace RingCentral',
   component: (
     <div className="w-full">

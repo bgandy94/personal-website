@@ -68,37 +68,39 @@ export const atbSystemProject: Project = {
       </div>
 
       <Outro />
-      <h2>Technical Details</h2>
-      <h3>Auth to Google Sheets API From AWS Lambda</h3>
-      <p>
-        This turned out to be more trivial than I was anticipating. I already
-        had an existing service account in Google Cloud Console. There were a
-        couple steps involved to make sure the auth worked.
-      </p>
-      <ol className="text-left">
-        <li>
-          <span className="font-bold">
-            Share the sheet with the service account.
-          </span>{' '}
-          All service accounts are assigned an email, so sharing the sheet is
-          just like sharing it with anyone. Just put the email in and make sure
-          it has the permissions it needs.
-        </li>
-        <li>
-          <span className="font-bold">
-            Retrieve/store JSON key for service account.
-          </span>{' '}
-          I took the key copied out of Google console and stored it in a secure
-          string in AWS Systems Manager Parameter Store. I stringified it in,
-          and parsed it out!
-        </li>
-      </ol>
-      <h3>How to determine an ATB email from other text emails?</h3>
-      <p>
-        Nothing magic here! I decided on a particular string that denotes an
-        email as an ATB. What&apos;s the string you ask? &quot;ATB&quot; of
-        course!
-      </p>
+      <div className="mt-12">
+        <h2>Technical Details</h2>
+        <h3>Auth to Google Sheets API From AWS Lambda</h3>
+        <p>
+          This turned out to be more trivial than I was anticipating. I already
+          had an existing service account in Google Cloud Console. There were a
+          couple steps involved to make sure the auth worked.
+        </p>
+        <ol className="text-left">
+          <li>
+            <span className="font-bold">
+              Share the sheet with the service account.
+            </span>{' '}
+            All service accounts are assigned an email, so sharing the sheet is
+            just like sharing it with anyone. Just put the email in and make
+            sure it has the permissions it needs.
+          </li>
+          <li>
+            <span className="font-bold">
+              Retrieve/store JSON key for service account.
+            </span>{' '}
+            I took the key copied out of Google console and stored it in a
+            secure string in AWS Systems Manager Parameter Store. I stringified
+            it in, and parsed it out!
+          </li>
+        </ol>
+        <h3>How to determine an ATB email from other text emails?</h3>
+        <p>
+          Nothing magic here! I decided on a particular string that denotes an
+          email as an ATB. What&apos;s the string you ask? &quot;ATB&quot; of
+          course!
+        </p>
+      </div>
     </div>
   ),
 }

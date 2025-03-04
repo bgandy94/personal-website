@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Summaries</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 5px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .warning {
+            color: red;
+            font-weight: bold;
+        }
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+        .property-separator {
+            border-top: 3px solid #000;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>January 2025 Portfolio Summary </h1>
+    <table>
+        <tr>
+            <th>Total Holding Profit</th>
+            <th>Total Management Fees</th>
+            <th>Total Rent Collected</th>
+            <th>Total Maintenance Expenses </th>
+        </tr>
+        <tr>
+            <td>
+                $500.00            </td>
+            <td>
+                $950.00            </td>
+            <td>
+                $5,700.00            </td>
+            <td>
+                $2,000.00            </td>
+        </tr>
+    </table>
+    <h2>Properties with Leases Expiring Within 90 Days</h2>
+    <table>
+        <tr>
+            <th>Property Address</th>
+            <th>Lease End Date</th>
+            <th>Days Until Expiration</th>
+        </tr>
+                <tr>
+            <td>456 Oak Ave, Miami, FL</td>
+            <td>04/01/2025</td>
+            <td class="warning">29</td>
+        </tr>
+            </table>
+
+    <h2>Properties with Delinquent Rent</h2>
+    <table>
+        <tr>
+            <th>Property Address</th>
+            <th>Current Rent Fee</th>
+            <th>Collected Rent</th>
+        </tr>
+                <tr>
+            <td>456 Oak Ave, Miami, FL</td>
+            <td>$2,800.00</td>
+            <td class="warning">$2,200.00</td>
+        </tr>
+            </table>
+
+    <h2>Properties with Maintenance Expenses</h2>
+    <table>
+        <tr>
+            <th>Property Address</th>
+            <th>Total Maintenance Expenses</th>
+        </tr>
+                <tr>
+            <td>123 Main St, Los Angeles, CA</td>
+            <td>$1,200.00</td>
+        </tr>
+                <tr>
+            <td>456 Oak Ave, Miami, FL</td>
+            <td>$800.00</td>
+        </tr>
+            </table>
+    <div style="page-break-after: always;"></div>
+            <h2>Expense Summary for 123 Main St, Los Angeles, CA</h2>
+        <p><strong>Status:</strong> Leased</p>
+        
+                    <p><strong>Lease Duration</strong> 06/01/2024 - 06/01/2025</p>
+                <p class="">
+            <strong>Days Until Expiration:</strong> 120        </p>
+        
+                
+        <div style="display: flex; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Management Breakdown</h2>
+                <table>
+                    <tr>
+                        <th>Label</th>
+                        <th>Amount</th>
+                    </tr>
+                    <tr>
+                        <td>Current Rent Fee</td>
+                        <td>$3,500.00</td>
+                    </tr>
+                    <tr>
+                        <td>Collected Rent</td>
+                        <td class=''>$3,500.00</td>
+                    </tr>
+                    <tr>
+                        <td>Total Late Fee Income</td>
+                        <td>$100.00</td>
+                    </tr>
+                    <tr>
+                        <td>Total Pet Fee Income</td>
+                        <td>$50.00</td>
+                    </tr>
+                    <tr>
+                        <td>Total Maintenance Expenses</td>
+                        <td>$1,200.00</td>
+                    </tr>
+                    <tr>
+                        <td>Total Management Fees</td>
+                        <td>$500.00</td>
+                    </tr>
+                    <tr>
+                        <td>Total Management Withholding</td>
+                        <td>$1,700.00</td>
+                    </tr>
+                    <tr>
+                        <td>Owner Disbursement Amount</td>
+                        <td>$2,000.00</td>
+                    </tr>
+                </table>
+            </div>
+        <div style="flex: 1;">
+            <h2>Holding Breakdown</h2>
+            <table>
+                <tr>
+                    <th>Label</th>
+                    <th>Amount</th>
+                </tr>
+                <tr>
+                    <td>Total Mortgage Expense</td>
+                    <td>$2,500.00</td>
+                </tr>
+                <tr>
+                    <td>Total Insurance Expense</td>
+                    <td>$300.00</td>
+                </tr>
+                <tr>
+                    <td>Total Tax Expense</td>
+                    <td>$700.00</td>
+                </tr>
+                <tr>
+                    <td>Holding Profit</td>
+                    <td class="success">$300.00</td>
+                </tr>
+            </table>
+            </div>
+        </div>
+
+        <p><strong>Total Property Profit:</strong> <span class='success'>$800.00<span> </p>
+        
+        <h2>Transactions for 123 Main St, Los Angeles, CA</h2>
+        <table>
+            <tr>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Merchant</th>
+            <th>Category</th>
+            <th>Tags</th>
+            </tr>
+                        <tr>
+                <td>02/15/2025</td>
+                <td>$3,500.00</td>
+                <td>Tenant Payment</td>
+                <td>Rent</td>
+                <td>Rent</td>
+            </tr>
+                    </table>
+        <div style="page-break-after: always;"></div>
+            <h2>Expense Summary for 456 Oak Ave, Miami, FL</h2>
+        <p><strong>Status:</strong> Leased</p>
+        
+                    <p><strong>Lease Duration</strong> 04/01/2024 - 04/01/2025</p>
+                <p class="warning">
+            <strong>Days Until Expiration:</strong> 29        </p>
+        
+                    <p class="warning">Warning: Collected rent is less than the current rent fee!</p>
+                
+        <div style="display: flex; gap: 20px;">
+            <div style="flex: 1;">
+                <h2>Management Breakdown</h2>
+                <table>
+                    <tr>
+                        <th>Label</th>
+                        <th>Amount</th>
+                    </tr>
+                    <tr>
+                        <td>Current Rent Fee</td>
+                        <td>$2,800.00</td>
+                    </tr>
+                    <tr>
+                        <td>Collected Rent</td>
+                        <td class='warning'>$2,200.00</td>
+                    </tr>
+                    <tr>
+                        <td>Total Late Fee Income</td>
+                        <td>$0.00</td>
+                    </tr>
+                    <tr>
+                        <td>Total Pet Fee Income</td>
+                        <td>$75.00</td>
+                    </tr>
+                    <tr>
+                        <td>Total Maintenance Expenses</td>
+                        <td>$800.00</td>
+                    </tr>
+                    <tr>
+                        <td>Total Management Fees</td>
+                        <td>$450.00</td>
+                    </tr>
+                    <tr>
+                        <td>Total Management Withholding</td>
+                        <td>$1,250.00</td>
+                    </tr>
+                    <tr>
+                        <td>Owner Disbursement Amount</td>
+                        <td>$1,600.00</td>
+                    </tr>
+                </table>
+            </div>
+        <div style="flex: 1;">
+            <h2>Holding Breakdown</h2>
+            <table>
+                <tr>
+                    <th>Label</th>
+                    <th>Amount</th>
+                </tr>
+                <tr>
+                    <td>Total Mortgage Expense</td>
+                    <td>$2,000.00</td>
+                </tr>
+                <tr>
+                    <td>Total Insurance Expense</td>
+                    <td>$250.00</td>
+                </tr>
+                <tr>
+                    <td>Total Tax Expense</td>
+                    <td>$600.00</td>
+                </tr>
+                <tr>
+                    <td>Holding Profit</td>
+                    <td class="success">$200.00</td>
+                </tr>
+            </table>
+            </div>
+        </div>
+
+        <p><strong>Total Property Profit:</strong> <span class='success'>$650.00<span> </p>
+        
+        <h2>Transactions for 456 Oak Ave, Miami, FL</h2>
+        <table>
+            <tr>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Merchant</th>
+            <th>Category</th>
+            <th>Tags</th>
+            </tr>
+                        <tr>
+                <td>02/10/2025</td>
+                <td>$2,200.00</td>
+                <td>Tenant Payment</td>
+                <td>Rent</td>
+                <td>Rent</td>
+            </tr>
+                    </table>
+        <div style="page-break-after: always;"></div>
+    </body>
+</html>

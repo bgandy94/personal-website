@@ -167,7 +167,7 @@ export const booksAutomationProject: Project = {
           each month
         </li>
       </ul>
-      <h3>How it works</h3>
+      <h3 id="data-formatter-diagram">How it works</h3>
       <div className="grid gap-x-16 gap-y-8 grid-cols-1 my-4 md:grid-cols-2">
         {[
           'Data export started -- run every 1 hour on a schedule',

@@ -25,12 +25,6 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
-      - uses: dorny/paths-filter@v3
-        id: filter
-        with:
-          filters: |
-            infra:
-              - 'src/infra/**'
       - uses: actions/setup-node@v4
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -38,6 +32,12 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            infra:
+              - 'src/infra/**'
       - name: cdk deploy
         if: steps.filter.outputs.infra == 'true'
         uses: youyo/aws-cdk-github-actions@v2

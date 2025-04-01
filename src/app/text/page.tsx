@@ -19,7 +19,7 @@ const PhonePage = () => {
         <a
           className="bg-primary mt-2 p-2 w-1/3"
           href={encodeURI(
-            `mailto:mail@anomaly-email.gandy.me?subject=+1${phoneNumber} Text Thread`
+            `mailto:mail@texts.anomalyok.com?subject=+1${phoneNumber} Text Thread`
           )}
         >
           Mailto Link

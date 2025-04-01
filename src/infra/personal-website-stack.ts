@@ -56,8 +56,6 @@ export class PersonalWebsiteStack extends cdk.Stack {
       priceClass: cf.PriceClass.PRICE_CLASS_100,
     })
 
-    console.log('test')
-
     const rootDomainRecord = new r53.ARecord(this, `${websiteHost}-a-record`, {
       zone,
       recordName: websiteHost,

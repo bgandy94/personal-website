@@ -36,6 +36,7 @@ export class PersonalWebsiteStack extends cdk.Stack {
         hostName: rootBucket.bucketWebsiteUrl,
       },
     })
+    console.log('test')
 
     const zone = new r53.HostedZone(this, 'personal-hosted-zone', {
       zoneName: 'gandy.me',

@@ -9,7 +9,7 @@ const PhonePage = () => {
       <label htmlFor="number">
         Number to text:
         <PhoneInput
-          className="ml-2 text-black"
+          className="ml-2"
           type="tel"
           value={phoneNumber}
           onChange={setPhoneNumber}

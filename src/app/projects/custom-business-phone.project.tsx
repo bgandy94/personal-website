@@ -76,9 +76,7 @@ export const customBusinessPhoneProject: Project = {
         voicemail, the caller will prompted to leave a message. The voice
         message, if left, will be transcribed, and sent in an email along with
         the audio to our shared business email.
-        <span className="font-bold">
-          A call is received from an agent number
-        </span>
+        <p className="font-bold">A call is received from an agent number</p>
         An agent phone number is either my wife or I&apos;s personal number.
         When this occurs, an IVR menu (press 1 to x, press 2 to y) will be
         reached that includes the following options:

@@ -47,7 +47,7 @@ jobs:
               - 'src/infra/**'
 
       - name: install deps
-        run: pnpm i --frozen-lockfile
+        run: pnpm i 
 
       - name: cdk deploy
         if: steps.filter.outputs.infra == 'true'

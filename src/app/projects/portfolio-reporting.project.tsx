@@ -187,12 +187,6 @@ const getNRecentMessages = (n: number) =>
     limit: n,
   })
 // main code:    
-const TWILIO_ACCOUNT_SID = twilioCreds.accountSid
-const TWILIO_AUTH_TOKEN = twilioCreds.authToken
-const twilioService = initTwilioService(
-  TWILIO_ACCOUNT_SID,
-  TWILIO_AUTH_TOKEN,
-)
 let otpCode: string | undefined = undefined
 const now = new Date(Date.now() - 5000)
 let retries = 0

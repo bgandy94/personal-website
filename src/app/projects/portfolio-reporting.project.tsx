@@ -108,7 +108,7 @@ export const portfolioReportingProject: Project = {
         simple to update with additional information as needed though as new
         questions arise.
       </p>
-      <h3>Sneak Peak</h3>
+      <h3>Coming Soon!</h3>
       <p>
         I&apos;m in the final stages of finishing a project to use this data and
         automatically transfer the money for all of our properties every month,

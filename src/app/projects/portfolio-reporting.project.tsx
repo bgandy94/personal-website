@@ -178,8 +178,7 @@ export const portfolioReportingProject: Project = {
         retries were necessary due to the delay in the receipt of the message.
       </p>
       <CodeBlock lang="typescript">
-        {`    
-    // twilio-service method:
+        {`    // twilio-service method:
     const getNRecentMessages = (n: number) =>
       twilioClient.messages.list({
         limit: n,

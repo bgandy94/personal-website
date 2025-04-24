@@ -9,7 +9,7 @@ const PhonePage = () => {
       <label htmlFor="number">
         Number to text:
         <PhoneInput
-          className="ml-2 text-black"
+          className="ml-2"
           type="tel"
           value={phoneNumber}
           onChange={setPhoneNumber}
@@ -19,7 +19,7 @@ const PhonePage = () => {
         <a
           className="bg-primary mt-2 p-2 w-1/3"
           href={encodeURI(
-            `mailto:mail@anomaly-email.gandy.me?subject=+1${phoneNumber} Text Thread`
+            `mailto:mail@texts.anomalyok.com?subject=+1${phoneNumber} Text Thread`
           )}
         >
           Mailto Link

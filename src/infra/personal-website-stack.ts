@@ -4,6 +4,7 @@ import * as r53 from 'aws-cdk-lib/aws-route53'
 import * as targets from 'aws-cdk-lib/aws-route53-targets'
 import * as cf from 'aws-cdk-lib/aws-cloudfront'
 import * as cm from 'aws-cdk-lib/aws-certificatemanager'
+import * as origins from 'aws-cdk-lib/aws-cloudfront-origins'
 
 const websiteHost = 'brandon.gandy.me'
 const dubdubdubHost = `www.${websiteHost}`
@@ -43,33 +44,17 @@ export class PersonalWebsiteStack extends cdk.Stack {
     const cert = new cm.Certificate(this, 'gandy.me-ssl', {
       domainName: 'gandy.me',
       subjectAlternativeNames: ['*.gandy.me', '*.brandon.gandy.me'],
-      validation: {
-        method: cm.ValidationMethod.DNS,
-        props: {
-          hostedZone: zone,
-        },
-      },
+      validation: cm.CertificateValidation.fromDns(zone),
     })
 
-    const distro = new cf.CloudFrontWebDistribution(
-      this,
-      `${websiteHost}-cf-distro`,
-      {
-        priceClass: cf.PriceClass.PRICE_CLASS_100,
-        originConfigs: [
-          {
-            behaviors: [{ isDefaultBehavior: true }],
-            s3OriginSource: {
-              s3BucketSource: rootBucket,
-            },
-          },
-        ],
-
-        viewerCertificate: cf.ViewerCertificate.fromAcmCertificate(cert, {
-          aliases: [websiteHost, dubdubdubHost],
-        }),
-      }
-    )
+    const distro = new cf.Distribution(this, `${websiteHost}-cf-distro`, {
+      defaultBehavior: {
+        origin: new origins.S3StaticWebsiteOrigin(rootBucket),
+      },
+      domainNames: [websiteHost, dubdubdubHost],
+      certificate: cert,
+      priceClass: cf.PriceClass.PRICE_CLASS_100,
+    })
 
     const rootDomainRecord = new r53.ARecord(this, `${websiteHost}-a-record`, {
       zone,

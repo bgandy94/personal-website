@@ -92,6 +92,10 @@ ul ul {
   padding-right: 15px;
 }
 
+.code-block .line:first-child {
+  margin-left: -4px;
+}
+
 pre.shiki {
   background-color: slategray;
   overflow-x: auto;

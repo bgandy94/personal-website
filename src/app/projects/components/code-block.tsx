@@ -28,7 +28,7 @@ export const CodeBlock = async ({ children, lang }: Props) => {
   })
 
   return (
-    <div className="relative text-left group max-h-[30rem]">
+    <div className="relative text-left group max-h-[30rem] overflow-auto">
       <button
         className="absolute top-2 right-2 z-10 bg-gray-800 text-white text-xs px-2 py-1 rounded hover:bg-gray-700 transition backdrop-blur-sm bg-opacity-80"
         data-copy-target={id}

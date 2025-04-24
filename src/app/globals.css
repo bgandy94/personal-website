@@ -88,6 +88,9 @@ ul ul {
   min-width: max-content; 
   background-color: inherit; 
 }
+.code-block .line {
+  padding-right: 15px;
+}
 
 .code-block .line:first-child {
   margin-left: -4px;

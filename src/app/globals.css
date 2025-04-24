@@ -77,16 +77,26 @@ ul ul {
 
 .code-block-wrapper {
   padding: 10px;
+  color: slategray;
+  width: 100%
 }
 
 .code-block {
   background-color: initial !important;
   counter-reset: step;
   counter-increment: step 0;
+  min-width: max-content; 
+  background-color: inherit; 
 }
 
 .code-block .line:first-child {
   margin-left: -4px;
+}
+
+pre.shiki {
+  background-color: slategray;
+  overflow-x: auto;
+  min-width: max-content;
 }
 
 .code-block .line::before {
@@ -96,7 +106,6 @@ ul ul {
   margin-right: 1.5rem;
   display: inline-block;
   text-align: right;
-  color: slategray
 }
 code .line:only-child::before {
   content: none;

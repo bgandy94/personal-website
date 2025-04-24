@@ -28,18 +28,21 @@ export const CodeBlock = async ({ children, lang }: Props) => {
   })
 
   return (
-    <div className="relative text-left group max-h-[30rem] overflow-auto">
+    <div className="relative text-left group max-h-[30rem]">
       <button
-        className="absolute top-2 right-2 z-10 bg-gray-800 text-white text-xs px-2 py-1 rounded hover:bg-gray-700 transition"
+        className="absolute top-2 right-2 z-10 bg-gray-800 text-white text-xs px-2 py-1 rounded hover:bg-gray-700 transition backdrop-blur-sm bg-opacity-80"
         data-copy-target={id}
       >
         Copy
       </button>
-      <div dangerouslySetInnerHTML={{ __html: out }} />
+
+      <div className="overflow-x-auto rounded">
+        <div dangerouslySetInnerHTML={{ __html: out }} />
+      </div>
+
       <Script id="copy-code" strategy="lazyOnload">
         {`
             document.addEventListener('click', (e) => {
-              console.log('click', e.target)
               const btn = e.target.closest('[data-copy-target]')
               if (!btn) return
               const targetId = btn.getAttribute('data-copy-target')

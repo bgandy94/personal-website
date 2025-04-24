@@ -14,31 +14,11 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
   }
-}
 
-@utility text-balance {
-  text-wrap: balance;
-}
-
-@layer utilities {
-  :root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --foreground-rgb: 255, 255, 255;
-      --background-start-rgb: 0, 0, 0;
-      --background-end-rgb: 0, 0, 0;
-    }
-  }
-}
-@layer base {
   p {
     @apply text-[17px] my-2;
   }
+
   h1 {
     @apply text-[2.25rem] leading-tight;
   }
@@ -58,58 +38,76 @@
   ol {
     @apply list-decimal list-inside;
   }
+
   code {
     @apply bg-slate-600 rounded-sm px-1 w-full my-2;
   }
 
   hr {
-    @apply w-full my-4 border-gray-400  border-t-2;
+    @apply w-full my-4 border-gray-400 border-t-2;
   }
+
   a {
     @apply underline;
   }
+
+  ul ul {
+    margin-left: 1.25rem;
+    list-style: circle;
+  }
 }
 
-ul ul {
-  margin-left: 1.25rem;
-  list-style: circle;
+@layer components {
+  .code-block-wrapper {
+    @apply p-2 text-slate-500 w-full;
+  }
+
+  .code-block {
+    @apply min-w-max bg-inherit;
+    counter-reset: step;
+    counter-increment: step 0;
+  }
+
+  .code-block .line {
+    @apply pr-4;
+  }
+
+  .code-block .line:first-child {
+    @apply -ml-1;
+  }
+
+  pre.shiki {
+    @apply bg-slate-500 overflow-x-auto min-w-max;
+  }
+
+  .code-block .line::before {
+    content: counter(step);
+    counter-increment: step;
+    @apply w-4 mr-6 inline-block text-right;
+  }
+
+  code .line:only-child::before {
+    content: none;
+  }
 }
 
-.code-block-wrapper {
-  padding: 10px;
-  color: slategray;
-  width: 100%
+@layer utilities {
+  :root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --foreground-rgb: 255, 255, 255;
+      --background-start-rgb: 0, 0, 0;
+      --background-end-rgb: 0, 0, 0;
+    }
+  }
 }
 
-.code-block {
-  background-color: initial !important;
-  counter-reset: step;
-  counter-increment: step 0;
-  min-width: max-content; 
-  background-color: inherit; 
-}
-.code-block .line {
-  padding-right: 15px;
-}
-
-.code-block .line:first-child {
-  margin-left: -4px;
-}
-
-pre.shiki {
-  background-color: slategray;
-  overflow-x: auto;
-  min-width: max-content;
-}
-
-.code-block .line::before {
-  content: counter(step);
-  counter-increment: step;
-  width: 1rem;
-  margin-right: 1.5rem;
-  display: inline-block;
-  text-align: right;
-}
-code .line:only-child::before {
-  content: none;
+/* Custom Utility Class */
+@utility text-balance {
+  text-wrap: balance;
 }

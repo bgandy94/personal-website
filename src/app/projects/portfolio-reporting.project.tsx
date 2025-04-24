@@ -131,39 +131,42 @@ export const portfolioReportingProject: Project = {
         I used this strategy for both Monarch and Baselane.
       </p>
       <p>
-        One technique that I&apos;ve learned recently in order to more easily
-        get auth information when trying to find it in local or session storage
-        seems tricky is to actually use Playwright&apos;s &nbsp;
+        One technique that I&apos;ve learned recently (shoutout to{' '}
+        <Link target="_blank" href={'https://github.com/shoopapa'}>
+          Joe Davis
+        </Link>
+        ) in order to more easily get auth information when traditional methods
+        prove difficult is to use Playwright&apos;s &nbsp;
         <code>page.on(&apos;request&apos;)</code> method, and return all the
         headers from that request to be used subsequently.
       </p>
       <CodeBlock lang="typescript">
         {`const headers = await new Promise<Record<string, string>>((res, rej) =>
-      page.on('request', async (req) => {
-        if (
-          req.url() === baselaneGraphqlUrl &&
-          req.postDataJSON()?.operationName === 'currentWorkspace'
-        ) {
-          const headers = await req.allHeaders()
-          if (!headers.cookie) {
-            rej(new Error('failed to get cookie'))
-            return
+page.on('request', async (req) => {
+  if (
+    req.url() === baselaneGraphqlUrl &&
+    req.postDataJSON()?.operationName === 'currentWorkspace'
+  ) {
+    const headers = await req.allHeaders()
+    if (!headers.cookie) {
+      rej(new Error('failed to get cookie'))
+      return
+    }
+    page.removeAllListeners()
+    res(
+      Object.entries(headers).reduce(
+        (acc, [key, value]) => {
+          if (key.startsWith(':') || key === 'content-length') {
+            return acc
           }
-          page.removeAllListeners()
-          res(
-            Object.entries(headers).reduce(
-              (acc, [key, value]) => {
-                if (key.startsWith(':') || key === 'content-length') {
-                  return acc
-                }
-                acc[key.toLowerCase()] = value
-                return acc
-              },
-              {} as Record<string, string>,
-            ),
-          )
-        }
-      }),
+          acc[key.toLowerCase()] = value
+          return acc
+        },
+        {} as Record<string, string>,
+      ),
+    )
+  }
+}),
     )`}
       </CodeBlock>
       <h3>Baselane Requires text message 2FA prior to transfers. 😳</h3>
@@ -178,44 +181,44 @@ export const portfolioReportingProject: Project = {
         retries were necessary due to the delay in the receipt of the message.
       </p>
       <CodeBlock lang="typescript">
-        {`    // twilio-service method:
-    const getNRecentMessages = (n: number) =>
-      twilioClient.messages.list({
-        limit: n,
-      })
-    // main code:    
-    const TWILIO_ACCOUNT_SID = twilioCreds.accountSid
-    const TWILIO_AUTH_TOKEN = twilioCreds.authToken
-    const twilioService = initTwilioService(
-      TWILIO_ACCOUNT_SID,
-      TWILIO_AUTH_TOKEN,
-    )
-    let otpCode: string | undefined = undefined
-    const now = new Date(Date.now() - 5000)
-    let retries = 0
-    while (!otpCode && retries < 5) {
-      const recentMessages = await twilioService.getNRecentMessages(5)
+        {`// twilio-service method:
+const getNRecentMessages = (n: number) =>
+  twilioClient.messages.list({
+    limit: n,
+  })
+// main code:    
+const TWILIO_ACCOUNT_SID = twilioCreds.accountSid
+const TWILIO_AUTH_TOKEN = twilioCreds.authToken
+const twilioService = initTwilioService(
+  TWILIO_ACCOUNT_SID,
+  TWILIO_AUTH_TOKEN,
+)
+let otpCode: string | undefined = undefined
+const now = new Date(Date.now() - 5000)
+let retries = 0
+while (!otpCode && retries < 5) {
+  const recentMessages = await twilioService.getNRecentMessages(5)
 
-      const otpMessage = recentMessages.find(
-        (msg) =>
-          msg.body.includes('Baselane verification code') &&
-          msg.dateCreated > now,
-      )
+  const otpMessage = recentMessages.find(
+    (msg) =>
+      msg.body.includes('Baselane verification code') &&
+      msg.dateCreated > now,
+  )
 
-      const codeRegex = /(\d{6})/
-      const codeMatch = otpMessage?.body.match(codeRegex)
-      if (codeMatch) {
-        otpCode = codeMatch[0]
-        break
-      }
+  const codeRegex = /(\d{6})/
+  const codeMatch = otpMessage?.body.match(codeRegex)
+  if (codeMatch) {
+    otpCode = codeMatch[0]
+    break
+  }
 
-      retries++
-      await waitFor(3000)
-    }
+  retries++
+  await waitFor(3000)
+}
 
-    if (!otpCode) {
-      throw new Error('failed to get OTP code')
-    }`}
+if (!otpCode) {
+  throw new Error('failed to get OTP code')
+}`}
       </CodeBlock>
     </div>
   ),

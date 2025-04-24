@@ -124,11 +124,11 @@ export const portfolioReportingProject: Project = {
         is the API that the front-end uses. The general idea is that you
         authorize to the website, and then use the credentials received to call
         the API just like the front-end does. This strategy is a great way to
-        interact with websites with code because it&apos;s much more stable that
-        querying for elements on the page itself. I was able to convert a
-        Playwright automation that required at least 10 selectors and a ton of
-        clicking, typing, and waiting for elements into 3 simple GraphQL calls.
-        I used this strategy for both Monarch and Baselane.
+        interact with services because it&apos;s much more stable than querying
+        for elements on the page itself. I was able to convert a Playwright
+        automation that required at least 10 selectors and a ton of clicking,
+        typing, and waiting for elements into 3 simple GraphQL calls. I used
+        this strategy for both Monarch and Baselane.
       </p>
       <p>
         One technique that I&apos;ve learned recently (shoutout to{' '}

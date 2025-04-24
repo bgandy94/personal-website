@@ -112,7 +112,7 @@ export const portfolioReportingProject: Project = {
       <p>
         I&apos;m in the final stages of finishing a project to use this data and
         automatically transfer the money for all of our properties every month,
-        once we report is approved.
+        once the report is approved.
       </p>
       <p>Stay tuned...</p>
       <Outro />

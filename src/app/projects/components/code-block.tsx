@@ -28,7 +28,7 @@ export const CodeBlock = async ({ children, lang }: Props) => {
   })
 
   return (
-    <div className="relative text-left max-h-[30rem] overflow-auto rounded border border-gray-700 bg-[#24292e] my-4">
+    <div className="relative text-left overflow-auto rounded border border-gray-700 bg-[#24292e] my-4">
       <div className="flex items-center justify-between px-3 py-2 text-xs bg-[#1f2937] text-white sticky top-0 z-10">
         <span className="uppercase tracking-wide">{lang}</span>
         <button

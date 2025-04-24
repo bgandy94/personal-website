@@ -169,51 +169,6 @@ export const portfolioReportingProject: Project = {
   }),
 )`}
       </CodeBlock>
-      <h3>Baselane Requires text message 2FA prior to transfers. 😳</h3>
-      <p>
-        This one was actually made simple because of the&nbsp;
-        <Link href="/projects/custom-business-phone">
-          business phone project.
-        </Link>
-        &nbsp; Due to the fact we&apos;re already using Twilio to send and
-        receive texts, I was able to easily use Twilio&apos;s SDK to receive the
-        OTP code. Not the most beautiful, but the code used is below. The
-        retries were necessary due to the delay in the receipt of the message.
-      </p>
-      <CodeBlock lang="typescript">
-        {`// twilio-service method:
-const getNRecentMessages = (n: number) =>
-  twilioClient.messages.list({
-    limit: n,
-  })
-// main code:    
-let otpCode: string | undefined = undefined
-const now = new Date(Date.now() - 5000)
-let retries = 0
-while (!otpCode && retries < 5) {
-  const recentMessages = await twilioService.getNRecentMessages(5)
-
-  const otpMessage = recentMessages.find(
-    (msg) =>
-      msg.body.includes('Baselane verification code') &&
-      msg.dateCreated > now,
-  )
-
-  const codeRegex = /(\d{6})/
-  const codeMatch = otpMessage?.body.match(codeRegex)
-  if (codeMatch) {
-    otpCode = codeMatch[0]
-    break
-  }
-
-  retries++
-  await waitFor(3000)
-}
-
-if (!otpCode) {
-  throw new Error('failed to get OTP code')
-}`}
-      </CodeBlock>
     </div>
   ),
 }

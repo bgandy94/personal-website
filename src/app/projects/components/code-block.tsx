@@ -28,34 +28,40 @@ export const CodeBlock = async ({ children, lang }: Props) => {
   })
 
   return (
-    <div className="relative text-left group max-h-[30rem] overflow-auto">
-      <button
-        className="absolute top-2 right-2 z-10 bg-gray-800 text-white text-xs px-2 py-1 rounded hover:bg-gray-700 transition backdrop-blur-sm bg-opacity-80"
-        data-copy-target={id}
-      >
-        Copy
-      </button>
+    <div className="relative text-left max-h-[30rem] overflow-auto rounded border border-gray-700 bg-[#24292e]">
+      {/* Header with Copy button */}
+      <div className="flex items-center justify-between px-3 py-2 text-xs bg-[#1f2937] text-white sticky top-0 z-10">
+        <span className="uppercase tracking-wide">{lang}</span>
+        <button
+          className="bg-gray-700 hover:bg-gray-600 px-2 py-1 rounded transition"
+          data-copy-target={id}
+        >
+          Copy
+        </button>
+      </div>
 
-      <div className="overflow-x-auto rounded">
+      {/* Scrollable code block */}
+      <div className="overflow-auto">
         <div dangerouslySetInnerHTML={{ __html: out }} />
       </div>
 
+      {/* Script to handle copying */}
       <Script id="copy-code" strategy="lazyOnload">
         {`
-            document.addEventListener('click', (e) => {
-              const btn = e.target.closest('[data-copy-target]')
-              if (!btn) return
-              const targetId = btn.getAttribute('data-copy-target')
-              const el = document.getElementById(targetId)
-              if (el) {
-                navigator.clipboard.writeText(el.innerText).then(() => {
-                  btn.innerText = 'Copied!'
-                  setTimeout(() => {
-                    btn.innerText = 'Copy'
-                  }, 1500)
-                })
-              }
-            })
+          document.addEventListener('click', (e) => {
+            const btn = e.target.closest('[data-copy-target]');
+            if (!btn) return;
+            const targetId = btn.getAttribute('data-copy-target');
+            const el = document.getElementById(targetId);
+            if (el) {
+              navigator.clipboard.writeText(el.innerText).then(() => {
+                btn.innerText = 'Copied!';
+                setTimeout(() => {
+                  btn.innerText = 'Copy';
+                }, 1500);
+              });
+            }
+          });
         `}
       </Script>
     </div>

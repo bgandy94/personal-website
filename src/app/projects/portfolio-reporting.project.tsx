@@ -142,32 +142,32 @@ export const portfolioReportingProject: Project = {
       </p>
       <CodeBlock lang="typescript">
         {`const headers = await new Promise<Record<string, string>>((res, rej) =>
-page.on('request', async (req) => {
-  if (
-    req.url() === baselaneGraphqlUrl &&
-    req.postDataJSON()?.operationName === 'currentWorkspace'
-  ) {
-    const headers = await req.allHeaders()
-    if (!headers.cookie) {
-      rej(new Error('failed to get cookie'))
-      return
-    }
-    page.removeAllListeners()
-    res(
-      Object.entries(headers).reduce(
-        (acc, [key, value]) => {
-          if (key.startsWith(':') || key === 'content-length') {
+  page.on('request', async (req) => {
+    if (
+      req.url() === baselaneGraphqlUrl &&
+      req.postDataJSON()?.operationName === 'currentWorkspace'
+    ) {
+      const headers = await req.allHeaders()
+      if (!headers.cookie) {
+        rej(new Error('failed to get cookie'))
+        return
+      }
+      page.removeAllListeners()
+      res(
+        Object.entries(headers).reduce(
+          (acc, [key, value]) => {
+            if (key.startsWith(':') || key === 'content-length') {
+              return acc
+            }
+            acc[key.toLowerCase()] = value
             return acc
-          }
-          acc[key.toLowerCase()] = value
-          return acc
-        },
-        {} as Record<string, string>,
-      ),
-    )
-  }
-}),
-    )`}
+          },
+          {} as Record<string, string>,
+        ),
+      )
+    }
+  }),
+)`}
       </CodeBlock>
       <h3>Baselane Requires text message 2FA prior to transfers. 😳</h3>
       <p>

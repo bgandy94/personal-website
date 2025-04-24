@@ -1,7 +1,7 @@
-import Link from 'next/link'
 import { Project } from './projects'
-import Image from 'next/image'
 import { Outro } from './components/outro'
+import { CodeBlock } from './components/code-block'
+import Link from 'next/link'
 
 export const portfolioReportingProject: Project = {
   title: 'Portfolio Reporting System',
@@ -86,13 +86,7 @@ export const portfolioReportingProject: Project = {
         The system works similarly to my other projects that interact with
         Monarch and Google, it simply authorizes to both systems, pulls the data
         and processes it. There are some unique technical strategies used in
-        this project. One of which is that I&apos;m using what we call in the
-        RPA world an &quot;unoffical API&quot;. What&apos;s typically meant by
-        this phrase is the API that the front-end uses. The general idea is that
-        you authorize to the website, and then use the credentials received to
-        call the API just like the front-end does. This strategy is a great way
-        to interact with websites with code because it&apos;s much more stable
-        that querying for elements on the page itself.
+        this project, seen <a href="#unofficial-apis-in-rpa">below.</a>
       </p>
       <p>
         As with any project, the report was expanded quite a bit from its
@@ -114,7 +108,116 @@ export const portfolioReportingProject: Project = {
         simple to update with additional information as needed though as new
         questions arise.
       </p>
+      <h3>Sneak Peak</h3>
+      <p>
+        I&apos;m in the final stages of finishing a project to use this data and
+        automatically transfer the money for all of our properties every month,
+        once we report is approved.
+      </p>
+      <p>Stay tuned...</p>
       <Outro />
+      <h2>Interested in the technical details? Keep reading!</h2>
+      <h3 id="unofficial-apis-in-rpa">Unofficial APIs in RPA</h3>
+      <p>
+        I was able to use almost 100% of what we call in the RPA world an
+        &quot;unoffical API&quot;s. What&apos;s typically meant by this phrase
+        is the API that the front-end uses. The general idea is that you
+        authorize to the website, and then use the credentials received to call
+        the API just like the front-end does. This strategy is a great way to
+        interact with websites with code because it&apos;s much more stable that
+        querying for elements on the page itself. I was able to convert a
+        Playwright automation that required at least 10 selectors and a ton of
+        clicking, typing, and waiting for elements into 3 simple GraphQL calls.
+        I used this strategy for both Monarch and Baselane.
+      </p>
+      <p>
+        One technique that I&apos;ve learned recently in order to more easily
+        get auth information when trying to find it in local or session storage
+        seems tricky is to actually use Playwright&apos;s &nbsp;
+        <code>page.on(&apos;request&apos;)</code> method, and return all the
+        headers from that request to be used subsequently.
+      </p>
+      <CodeBlock lang="typescript">
+        {`const headers = await new Promise<Record<string, string>>((res, rej) =>
+      page.on('request', async (req) => {
+        if (
+          req.url() === baselaneGraphqlUrl &&
+          req.postDataJSON()?.operationName === 'currentWorkspace'
+        ) {
+          const headers = await req.allHeaders()
+          if (!headers.cookie) {
+            rej(new Error('failed to get cookie'))
+            return
+          }
+          page.removeAllListeners()
+          res(
+            Object.entries(headers).reduce(
+              (acc, [key, value]) => {
+                if (key.startsWith(':') || key === 'content-length') {
+                  return acc
+                }
+                acc[key.toLowerCase()] = value
+                return acc
+              },
+              {} as Record<string, string>,
+            ),
+          )
+        }
+      }),
+    )`}
+      </CodeBlock>
+      <h3>Baselane Requires text message 2FA prior to transfers. 😳</h3>
+      <p>
+        This one was actually made simple because of the&nbsp;
+        <Link href="/projects/custom-business-phone">
+          business phone project.
+        </Link>
+        &nbsp; Due to the fact we&apos;re already using Twilio to send and
+        receive texts, I was able to easily use Twilio&apos;s SDK to receive the
+        OTP code. Not the most beautiful, but the code used is below. The
+        retries were necessary due to the delay in the receipt of the message.
+      </p>
+      <CodeBlock lang="typescript">
+        {`    
+    // twilio-service method:
+    const getNRecentMessages = (n: number) =>
+      twilioClient.messages.list({
+        limit: n,
+      })
+    // main code:    
+    const TWILIO_ACCOUNT_SID = twilioCreds.accountSid
+    const TWILIO_AUTH_TOKEN = twilioCreds.authToken
+    const twilioService = initTwilioService(
+      TWILIO_ACCOUNT_SID,
+      TWILIO_AUTH_TOKEN,
+    )
+    let otpCode: string | undefined = undefined
+    const now = new Date(Date.now() - 5000)
+    let retries = 0
+    while (!otpCode && retries < 5) {
+      const recentMessages = await twilioService.getNRecentMessages(5)
+
+      const otpMessage = recentMessages.find(
+        (msg) =>
+          msg.body.includes('Baselane verification code') &&
+          msg.dateCreated > now,
+      )
+
+      const codeRegex = /(\d{6})/
+      const codeMatch = otpMessage?.body.match(codeRegex)
+      if (codeMatch) {
+        otpCode = codeMatch[0]
+        break
+      }
+
+      retries++
+      await waitFor(3000)
+    }
+
+    if (!otpCode) {
+      throw new Error('failed to get OTP code')
+    }`}
+      </CodeBlock>
     </div>
   ),
 }

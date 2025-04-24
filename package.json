@@ -15,7 +15,8 @@
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
-    "react-to-print": "^3.0.5"
+    "react-to-print": "^3.0.5",
+    "shiki": "^3.3.0"
   },
   "devDependencies": {
     "@types/node": "^22.9.2",

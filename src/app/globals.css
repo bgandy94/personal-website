@@ -60,3 +60,30 @@ ul ul {
   margin-left: 1.25rem;
   list-style: circle;
 }
+
+.code-block-wrapper {
+  padding: 10px;
+}
+
+.code-block {
+  background-color: initial !important;
+  counter-reset: step;
+  counter-increment: step 0;
+}
+
+.code-block .line:first-child {
+  margin-left: -4px;
+}
+
+.code-block .line::before {
+  content: counter(step);
+  counter-increment: step;
+  width: 1rem;
+  margin-right: 1.5rem;
+  display: inline-block;
+  text-align: right;
+  color: slategray
+}
+code .line:only-child::before {
+  content: none;
+}

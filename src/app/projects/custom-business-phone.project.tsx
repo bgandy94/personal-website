@@ -9,7 +9,7 @@ export const customBusinessPhoneProject: Project = {
   component: (
     <div className="w-full">
       <Link className="no-underline" href={'/projects/atb-system'}>
-        <div className="bg-sky-900 rounded-lg p-2 flex items-center">
+        <div className="bg-sky-900 rounded-lg p-2 flex justify-center">
           <p className="text-sky-200">
             Click to view project for new ATB functionality!
           </p>

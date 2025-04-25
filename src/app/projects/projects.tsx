@@ -3,6 +3,7 @@ import { booksAutomationProject } from './books-automation.project'
 import { customBusinessPhoneProject } from './custom-business-phone.project'
 import { atbSystemProject } from './atb-system.project'
 import { portfolioReportingProject } from './portfolio-reporting.project'
+import { autoTransferToolProject } from './auto-transfer-tool.project'
 
 export type Project = {
   slug: string
@@ -20,4 +21,5 @@ export const projects: Project[] = [
   booksAutomationProject,
   customBusinessPhoneProject,
   atbSystemProject,
+  autoTransferToolProject,
 ]

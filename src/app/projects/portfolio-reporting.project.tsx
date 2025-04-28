@@ -154,7 +154,7 @@ export const portfolioReportingProject: Project = {
       }
       page.removeAllListeners()
       res(
-        Object.entries(headers).reduce(
+        Object.entries(headers).reduce<Record<string, string>>(
           (acc, [key, value]) => {
             if (key.startsWith(':') || key === 'content-length') {
               return acc
@@ -162,7 +162,7 @@ export const portfolioReportingProject: Project = {
             acc[key.toLowerCase()] = value
             return acc
           },
-          {} as Record<string, string>,
+          {},
         ),
       )
     }

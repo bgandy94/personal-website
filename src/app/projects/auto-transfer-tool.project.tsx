@@ -1,6 +1,4 @@
 import { Project } from './projects'
-import { Outro } from './components/outro'
-import { CodeBlock } from './components/code-block'
 import Link from 'next/link'
 
 export const autoTransferToolProject: Project = {

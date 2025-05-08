@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Project } from './projects'
 import { Outro } from './components/outro'
 
-export const customBusinessPhoneProject: Project = {
+export const project = {
   slug: 'custom-business-phone',
   dates: { start: new Date('2024-10-03'), end: new Date('2024-11-12') },
   title: 'Custom Business Phone to Replace RingCentral',
@@ -233,4 +233,4 @@ export const customBusinessPhoneProject: Project = {
       </p>
     </div>
   ),
-}
+} as const satisfies Project

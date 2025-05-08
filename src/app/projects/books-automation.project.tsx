@@ -84,7 +84,7 @@ const CircleWithNumber = ({
   )
 }
 
-export const booksAutomationProject: Project = {
+export const project = {
   slug: 'rental-portfolio-books-automation',
   title: 'Automating my portfolio P&L with Monarch and Google Sheets',
   dates: { start: new Date('2024-01-31'), end: new Date('2024-03-01') },
@@ -290,4 +290,4 @@ export const booksAutomationProject: Project = {
       <Outro />
     </div>
   ),
-}
+} as const satisfies Project

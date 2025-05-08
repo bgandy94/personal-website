@@ -1,7 +1,6 @@
 import { Project } from './projects'
-import Link from 'next/link'
-
-export const autoTransferToolProject: Project = {
+import { ProjectLink } from './components/project-link'
+export const project = {
   title: 'Automatic Money Transfer Tool',
   slug: 'auto-transfer-tool',
   draft: true,
@@ -14,9 +13,9 @@ export const autoTransferToolProject: Project = {
       <h2>The Problem</h2>
       <p>
         After completing our{' '}
-        <Link href="/projects/portfolio-reporting-system">
+        <ProjectLink projectName="portfolioReportingProject">
           portfolio reporting project
-        </Link>
+        </ProjectLink>
         , it was very clear that going through each property and managing
         transfers from the management company to the holding company was going
         to be too much. The problem will only get worse with the more properties
@@ -33,10 +32,20 @@ export const autoTransferToolProject: Project = {
       </p>
       <h2>The Solution</h2>
       <p>
-        A system was built to take the data from the portfolio reporting
-        project, and go to my bank&apos;s website using Playwright and do the
-        transfer for each property.
+        A system was built to take the data from the{' '}
+        <ProjectLink projectName="portfolioReportingProject">
+          portfolio reporting project
+        </ProjectLink>
+        , and go to my bank&apos;s website using Playwright and do the transfer
+        for each property.
+      </p>
+      <p>
+        For every property listed in the portfolio report data we have to take
+        the owner disbursement amount and transfer that money from the
+        management company's account to the holding company's account. Or, in
+        the event the owner disbursement amount is negative, transfer the money
+        from the holding account to the management account!
       </p>
     </div>
   ),
-}
+} as const satisfies Project

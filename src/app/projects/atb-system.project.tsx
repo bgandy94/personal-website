@@ -1,9 +1,9 @@
-import Link from 'next/link'
 import { Project } from './projects'
 import Image from 'next/image'
 import { Outro } from './components/outro'
+import { ProjectLink } from './components/project-link'
 
-export const atbSystemProject: Project = {
+export const project = {
   title: 'ATB (All Tenants Bulletin) System',
   slug: 'atb-system',
   dates: {
@@ -32,7 +32,8 @@ export const atbSystemProject: Project = {
         A system that retrieves all tenant numbers and sends out a text via
         Twilio. I was able to build this functionality on top of my existing
         project, which can be read up on&nbsp;
-        <Link href="/projects/custom-business-phone">here</Link>.
+        <ProjectLink projectName="customBusinessPhoneProject">here</ProjectLink>
+        .
       </p>
       <p>
         One of the tricky parts of this project was deciding where to store
@@ -47,7 +48,7 @@ export const atbSystemProject: Project = {
       <p>
         I was able to piggy back a bit on some of the code I wrote in my
         portfolio report generation tool, project write up{' '}
-        <Link href="/projects/rental-portfolio-books-automation">here</Link>.
+        <ProjectLink projectName="booksAutomationProject">here</ProjectLink>.
         However, I run that code primarily on-demand as a script on my laptop.
         This project is hosted on AWS with API gateway and lambdas. So I had to
         find a way to authorize my lambda to be able to read my tenant contact
@@ -103,4 +104,4 @@ export const atbSystemProject: Project = {
       </div>
     </div>
   ),
-}
+} as const satisfies Project

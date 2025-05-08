@@ -3,7 +3,7 @@ import { Outro } from './components/outro'
 import { CodeBlock } from './components/code-block'
 import Link from 'next/link'
 
-export const portfolioReportingProject: Project = {
+export const project = {
   title: 'Portfolio Reporting System',
   slug: 'portfolio-reporting-system',
   dates: {
@@ -171,4 +171,4 @@ export const portfolioReportingProject: Project = {
       </CodeBlock>
     </div>
   ),
-}
+} as const satisfies Project

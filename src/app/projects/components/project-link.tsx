@@ -1,12 +1,16 @@
 import Link from 'next/link'
-import { PropsWithChildren } from 'react'
+import { type AnchorHTMLAttributes, type PropsWithChildren } from 'react'
 import { projectsMap } from '../projects'
 
 export const ProjectLink = <PKey extends keyof typeof projectsMap>({
   projectName,
+  target = '_blank',
   children,
-}: { projectName: PKey } & PropsWithChildren) => {
+}: { projectName: PKey } & PropsWithChildren &
+  Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'target'>) => {
   return (
-    <Link href={`/projects/${projectsMap[projectName].slug}`}>{children}</Link>
+    <Link target={target} href={`/projects/${projectsMap[projectName].slug}`}>
+      {children}
+    </Link>
   )
 }

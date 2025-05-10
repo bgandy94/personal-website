@@ -6,7 +6,6 @@ import Link from 'next/link'
 export const project = {
   title: 'Automatic Money Transfer Tool',
   slug: 'auto-transfer-tool',
-  draft: true,
   dates: {
     start: new Date('2025-04-13'),
     end: new Date('2025-04-25'),

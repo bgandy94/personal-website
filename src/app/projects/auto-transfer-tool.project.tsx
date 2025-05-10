@@ -98,17 +98,6 @@ export const project = {
         we can scale operations without increasing our workload.
       </p>
 
-      <h2>Feedback or Questions?</h2>
-      <p>
-        If you have any questions, suggestions for improving this process, or
-        want to discuss something I might be able to automate for you, feel free
-        to reach out at{' '}
-        <a href="mailto:brandongandy2012@gmail.com">
-          brandongandy2012@gmail.com
-        </a>
-        .
-      </p>
-
       <Outro />
     </div>
   ),

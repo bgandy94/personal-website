@@ -56,13 +56,13 @@ export const project = {
           portfolio reporting project
         </ProjectLink>
         , and uses Playwright to automate bank transfers for each property via
-        our bank’s website.
+        our bank&apos;s website.
       </p>
       <p>
         For every property in the portfolio report, the system looks at the
-        owner disbursement amount. If it’s positive, we transfer that amount
-        from the management account to the holding account. If it’s negative,
-        the transfer goes the other way—from holding to management.
+        owner disbursement amount. If it&apos;s positive, we transfer that
+        amount from the management account to the holding account. If it&apos;s
+        negative, the transfer goes the other way—from holding to management.
       </p>
 
       <h3>How It Works</h3>
@@ -76,25 +76,25 @@ export const project = {
           Playwright
         </Link>
         , a browser automation library that lets us simulate a real user. It
-        opens the bank’s website, logs in, and performs transfers property by
-        property.
+        opens the bank&apos;s website, logs in, and performs transfers property
+        by property.
       </p>
       <p>
-        Currently, it's just a script I run manually once the report is
+        Currently, it&apos;s just a script I run manually once the report is
         approved. But a future version will run this automatically on a
         schedule.
       </p>
       <p>
-        There’s not much to show visually for this project, but imagine manually
-        calculating what the management company owes the holding company and
-        making those transfers—
+        There&apos;s not much to show visually for this project, but imagine
+        manually calculating what the management company owes the holding
+        company and making those transfers—
         <span className="font-bold">every property, every month.</span>
       </p>
       <p>
         The manual effort grows linearly with the number of properties. With
         this system, that work is constant—whether you have 1 property or 1,000.
-        That’s the goal. Anything that can be automated <em>should</em> be, so
-        we can scale operations without increasing our workload.
+        That&apos;s the goal. Anything that can be automated <em>should</em> be,
+        so we can scale operations without increasing our workload.
       </p>
 
       <Outro />

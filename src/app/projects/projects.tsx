@@ -24,6 +24,4 @@ export const projectsMap = {
   autoTransferToolProject,
 }
 
-export const projects: Project[] = Object.entries(projectsMap).map(
-  ([_, v]) => v
-)
+export const projects: Project[] = Object.entries(projectsMap).map(([, v]) => v)

@@ -174,7 +174,7 @@ export const project = {
       </p>
       <p>
         Sadly, even with all this &ldquo;fun&rdquo; work, Gmail will still limit
-        my threads to be less than 50 emails, but it&apos;s still better than
+        my threads to be less than 100 emails, but it&apos;s still better than
         new threads for every text.
       </p>
 

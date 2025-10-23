@@ -28,6 +28,7 @@ const skills = [
   'Rest / GraphQL',
   'NextJS / Vercel',
   'AI - LLMS / Claude / GPT',
+  'AI - Agentic Workflow Automation',
   'Redux / Redux Toolkit',
   'Flask',
   'Systems Design',
@@ -48,7 +49,7 @@ const skills = [
   'Contentful',
   'LaunchDarkly',
   'Websockets',
-  'IAC - CDK / Pulumi /Terraform',
+  'IaC - CDK / Pulumi /Terraform',
   'Document Databases / NoSQL / DynamoDB',
   'React Testing Library',
   'Splunk / Cloudwatch',
@@ -78,6 +79,23 @@ type WorkExperience = {
 }
 
 const experiences: WorkExperience[] = [
+  {
+    order: 0,
+    startDate: new Date('2024-03-01'),
+    accomplishments: [
+      'Built novel AI agentic workflow automation tool to help businesses automate their workflows',
+      'Set up CI/CD pipelines for entire organization to help streamline development processes',
+      'Established testing standards leading to an increase in test coverage by 70%',
+      'Built SFTP server to help manage file transfers for our clients',
+      'Built scalable VPN solution to manage network access for our clients',
+      'Managed SOC2 compliance process from vendor selection to completion',
+      'Managed client onboarding processing to platform, resulting in 50+% increase in adoption of our tools across various customer',
+      'Built out AI dashboards for clients to help them monitor their workflows and identify areas for improvement',
+      'Re-architected complex queueing system to manage client requests, resulting in a 20% decrease in error rates.',
+    ],
+    company: 'KaynAI',
+    title: 'Founding Engineer',
+  },
   {
     order: 1,
     startDate: new Date('2023-03-01'),
@@ -118,21 +136,8 @@ const experiences: WorkExperience[] = [
   },
   {
     order: 4,
-    startDate: new Date('2020-11-01'),
-    endDate: new Date('2021-06-01'),
-    accomplishments: [
-      'Designed and implemented the company’s first customer portal with React, drastically reducing customer support calls.',
-      'Built internal components to be used by other front-end engineers.',
-      'Ensured test coverage using React Testing Library',
-      'Modified/created endpoints as needed to be used by the frontend.',
-    ],
-    company: 'TVC Pro-Driver',
-    title: 'Senior Software Engineer / Team Lead',
-  },
-  {
-    order: 5,
     startDate: new Date('2016-01-01'),
-    endDate: new Date('2020-11-01'),
+    endDate: new Date('2021-06-01'),
     accomplishments: [
       'Built public-facing APIs for a web and mobile client using NodeJS.',
       'Built card payments system to facilitate truckers being able to pay via a mobile app.',
@@ -157,7 +162,7 @@ const resume: Resume = {
   name: 'Brandon Gandy',
   jobTitle: 'Software Engineering Leader',
   summary:
-    'Results-driven engineer dedicated to inspiring and guiding teams and individuals toward peak performance. Deeply passionate about exploring the intricacies of technology, with a strong commitment to continuous learning. Excel at mentoring colleagues and steering teams, whether in a technical, managerial, or combined capacity. Proven team player with approximately 7-8 years of hands-on experience in the Agile software life-cycle. Outside of work, I indulge my interests in video games, hold an official real estate license in my state, and occasionally unwind by playing music.',
+    'Results-driven engineer dedicated to inspiring and guiding teams and individuals toward peak performance. Deeply passionate about exploring the intricacies of technology, with a strong commitment to continuous learning. Excel at mentoring colleagues and steering teams, whether in a technical, managerial, or combined capacity. Proven team player with approximately 9+ years of hands-on experience in the software life-cycle. Outside of work, I indulge my interests in video games, hold an official real estate license in my state, and occasionally unwind by playing music.',
   education: {
     fieldOfStudy: 'Cyber Security',
     degreeType: 'bachelors',

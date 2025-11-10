@@ -6,54 +6,54 @@ import { generateFormattedTitle } from '../lib/metadata-helpers'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const skills = [
-  'Typescript / Javascript',
-  'React / React Native',
-  'NodeJS',
-  'PostgresSQL / MySQL / MS SQL / MariaDB',
-  'C#/.NET',
-  'HTML/CSS',
-  'Ruby / Ruby on Rails',
-  'Python',
-  'Elm',
-  'AWS/GCP/Heroku/Cloudflare',
-  'Kafka',
-  'AWS SQS / SNS',
-  'AWS ECS / EKS',
-  'AWS Lambdas',
-  'RabbitMQ',
-  'Redis',
-  'Microservice Architecture',
-  'Docker / Kubernetes',
-  'Rest / GraphQL',
-  'NextJS / Vercel',
-  'AI - LLMS / Claude / GPT',
-  'AI - Agentic Workflow Automation',
-  'Redux / Redux Toolkit',
-  'Flask',
-  'Systems Design',
-  'Auth0',
-  'OAuth2',
-  'Functional Programming / OOP',
-  'Leadership / Mentoring',
-  'Jira',
-  'Confluence',
-  'Agile',
-  'Tailwind CSS',
-  'Vite',
-  'Chrome Extensions',
-  'Test-driven development',
-  'Playwright',
-  'Jenkins / Github Actions',
-  'ArgoCD',
-  'Contentful',
-  'LaunchDarkly',
-  'Websockets',
-  'IaC - CDK / Pulumi /Terraform',
-  'Document Databases / NoSQL / DynamoDB',
-  'React Testing Library',
-  'Splunk / Cloudwatch',
-]
+const skillCategories = {
+  'Languages/Frameworks': [
+    'Typescript / Javascript',
+    'React / React Native',
+    'NodeJS',
+    'C#/.NET',
+    'Ruby / Ruby on Rails',
+    'Python',
+    'Elm',
+    'NextJS / Vercel',
+    'Redux / Redux Toolkit',
+    'Flask',
+    'HTML/CSS',
+    'Tailwind CSS',
+  ],
+  'Infra/DevOps': [
+    'AWS/GCP/Heroku/Cloudflare',
+    'Docker / Kubernetes',
+    'AWS ECS / EKS',
+    'AWS Lambdas',
+    'IaC - CDK / Pulumi / Terraform',
+    'Jenkins / Github Actions',
+    'ArgoCD',
+    'Splunk / Cloudwatch',
+  ],
+  'Data/Architecture': [
+    'PostgresSQL / MySQL / MS SQL / MariaDB',
+    'Redis',
+    'DynamoDB / NoSQL',
+    'Microservice Architecture',
+    'Systems Design',
+    'Rest / GraphQL',
+    'Kafka',
+    'AWS SQS / SNS',
+    'RabbitMQ',
+    'Websockets',
+  ],
+  AI: [
+    'AI Fluent - Prompt engineering, tool orchestration, message streaming',
+    'Agentic Workflow Automation',
+  ],
+  'Leadership/Management': [
+    'Leadership / Mentoring',
+    'Agile',
+    'Test-driven development',
+    'Jira / Confluence',
+  ],
+}
 
 type Education = {
   university: string
@@ -83,15 +83,15 @@ const experiences: WorkExperience[] = [
     order: 0,
     startDate: new Date('2024-03-01'),
     accomplishments: [
-      'Built novel AI agentic workflow automation tool to help businesses automate their workflows',
-      'Set up CI/CD pipelines for entire organization to help streamline development processes',
-      'Established testing standards leading to an increase in test coverage by 70%',
-      'Built SFTP server to help manage file transfers for our clients',
-      'Built scalable VPN solution to manage network access for our clients',
-      'Managed SOC2 compliance process from vendor selection to completion',
-      'Managed client onboarding processing to platform, resulting in 50+% increase in adoption of our tools across various customer',
-      'Built out AI dashboards for clients to help them monitor their workflows and identify areas for improvement',
-      'Re-architected complex queueing system to manage client requests, resulting in a 20% decrease in error rates.',
+      'Built agentic AI workflow tool that automates complex healthcare tasks',
+      'Established CI/CD pipelines across organization, streamlining development processes',
+      'Introduced testing standards, increasing test coverage by 70%',
+      'Built SFTP server infrastructure, managing secure file transfers for clients',
+      'Designed scalable VPN solution, securing network access for clients',
+      'Led SOC2 compliance process from vendor selection through completion',
+      'Streamlined client onboarding pipeline, increasing platform adoption by 50%',
+      'Built AI monitoring dashboards, helping clients identify workflow optimization opportunities',
+      'Re-architected queueing system, reducing error rates by 20%',
     ],
     company: 'KaynAI',
     title: 'Founding Engineer',
@@ -101,10 +101,10 @@ const experiences: WorkExperience[] = [
     startDate: new Date('2023-03-01'),
     endDate: new Date('2024-03-01'),
     accomplishments: [
-      'Refactored flagship product reducing error rates by 10+% per day',
-      'Led the team to new SDLC processes to help manage our team of 8 engineers',
-      'Led many quality initiatives to help ensure our products were tested, scalable, easy to troubleshoot, and well-documented.',
-      'Helped created pattern to split main monolith into microservices',
+      'Refactored flagship product, reducing daily error rates by 10%',
+      'Established new SDLC processes, improving team velocity across 8 engineers',
+      'Led quality initiatives ensuring products were tested, scalable, and well-documented',
+      'Created microservices migration pattern, enabling monolith decomposition',
     ],
     company: 'Janus Health',
     title: 'Principal Software Engineer / Engineering Manager',
@@ -114,9 +114,9 @@ const experiences: WorkExperience[] = [
     startDate: new Date('2022-01-01'),
     endDate: new Date('2023-01-01'),
     accomplishments: [
-      'Oversaw the recruitment, onboarding, and development of software engineers, ensuring a skilled and motivated workforce.',
-      'Successfully delivered a high-priority project saving the company countless tickets and engineering hours.',
-      'Communicated project updates, milestones, and challenges transparently to leadership.',
+      'Led recruitment and development of engineering team, building skilled workforce',
+      'Delivered high-priority project, saving countless support tickets and engineering hours',
+      'Maintained transparent communication with leadership on milestones and challenges',
     ],
     company: 'Caribou Financial',
     title: 'Engineering Manager',
@@ -126,10 +126,10 @@ const experiences: WorkExperience[] = [
     startDate: new Date('2021-07-01'),
     endDate: new Date('2022-01-01'),
     accomplishments: [
-      'Designed/implemented various changes to existing architecture, including new form strategy, increased test coverage, as well as event-driven architecture.',
-      'Helped maintain and build new features on an existing consumer application that was visited 4000+ times a day.',
-      'Documented esoteric systems which made engineering onboarding much easier.',
-      'Delivered multiple business critical integrations with partners',
+      'Designed architecture improvements including form strategy and event-driven patterns, increasing test coverage',
+      'Built features for consumer application serving 4000+ daily visitors',
+      'Documented complex systems, accelerating engineering onboarding',
+      'Delivered business-critical partner integrations',
     ],
     company: 'Caribou Financial',
     title: 'Senior Software Engineer / Team Lead',
@@ -139,13 +139,12 @@ const experiences: WorkExperience[] = [
     startDate: new Date('2016-01-01'),
     endDate: new Date('2021-06-01'),
     accomplishments: [
-      'Built public-facing APIs for a web and mobile client using NodeJS.',
-      'Built card payments system to facilitate truckers being able to pay via a mobile app.',
-      'Built many microservices to handle things such as wallet storage, receipt generation, user information storage, and many more.',
-      'Created many internal tools for various business teams using .NET / C# / Angular 2',
-      'Converted many repositories from JavaScript to TypeScript',
+      'Built public-facing APIs serving web and mobile clients using NodeJS',
+      'Developed card payment system enabling mobile payments for truckers',
+      'Built microservices handling wallet storage, receipts, and user data management',
+      'Created internal tools for business teams using .NET / C# / Angular 2',
     ],
-    company: 'Other Experiences',
+    company: 'Independent Contributions',
     title: 'Software Engineer',
   },
 ]
@@ -155,14 +154,14 @@ type Resume = {
   jobTitle: string
   summary: string
   education: Education
-  skills: string[]
+  skillCategories: Record<string, string[]>
   experiences: WorkExperience[]
 }
 const resume: Resume = {
   name: 'Brandon Gandy',
   jobTitle: 'Software Engineering Leader',
   summary:
-    'Results-driven engineer dedicated to inspiring and guiding teams and individuals toward peak performance. Deeply passionate about exploring the intricacies of technology, with a strong commitment to continuous learning. Excel at mentoring colleagues and steering teams, whether in a technical, managerial, or combined capacity. Proven team player with approximately 9+ years of hands-on experience in the software life-cycle. Outside of work, I indulge my interests in video games, hold an official real estate license in my state, and occasionally unwind by playing music.',
+    'Engineering leader with 9+ years designing distributed systems and leading high-performance teams. Specialized in AI-native workflows, microservice architecture, and full-stack systems at scale. Proven success driving SOC2 compliance, building agentic AI tools, and reducing error rates through strong architecture and DevOps discipline.',
   education: {
     fieldOfStudy: 'Cyber Security',
     degreeType: 'bachelors',
@@ -170,7 +169,7 @@ const resume: Resume = {
     university: 'Oklahoma State University',
   },
   experiences,
-  skills,
+  skillCategories,
 }
 
 const Education = ({ education }: { education: Education }) => (
@@ -217,11 +216,20 @@ const ResumePage = () => {
               <section>
                 <h3>Skills</h3>
                 <hr className="my-2" />
-                {skills.map((skill) => (
-                  <p className="my-0 text-sm" key={skill}>
-                    {skill}
-                  </p>
-                ))}
+                {Object.entries(resume.skillCategories).map(
+                  ([category, skills]) => (
+                    <div key={category} className="mb-3">
+                      <p className="my-0 text-sm font-bold text-sky-300">
+                        {category}
+                      </p>
+                      {skills.map((skill) => (
+                        <p className="my-0 text-sm" key={skill}>
+                          {skill}
+                        </p>
+                      ))}
+                    </div>
+                  )
+                )}
               </section>
             </div>
           </div>

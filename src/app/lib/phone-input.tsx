@@ -6,11 +6,19 @@ interface PhoneInputProps
   // eslint-disable-next-line no-unused-vars
   onChange?: (value: string) => void
 }
+const normalizeNanpDigits = (input: string): string => {
+  let digits = input.replace(/[^0-9]/g, '')
+  if (digits.length === 11 && digits.startsWith('1')) {
+    digits = digits.slice(1)
+  }
+  return digits.slice(0, 10)
+}
+
 const formatPhoneNumber = (value: string): string => {
-  const cleaned = value.replace(/[^0-9]/g, '')
+  const cleaned = normalizeNanpDigits(value)
   const match = cleaned.match(/^([0-9]{0,3})([0-9]{0,3})([0-9]{0,4})$/)
 
-  if (!match) return value
+  if (!match) return cleaned
 
   const [, areaCode, centralOfficeCode, lineNumber] = match
   if (lineNumber) {
@@ -31,7 +39,7 @@ const PhoneInput: React.FC<PhoneInputProps> = ({
   const [inputValue, setInputValue] = useState<string>(formatPhoneNumber(value))
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const rawValue = event.target.value.replace(/[^0-9]/g, '')
+    const rawValue = normalizeNanpDigits(event.target.value)
     const formattedValue = formatPhoneNumber(rawValue)
 
     setInputValue(formattedValue)

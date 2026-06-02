@@ -13,7 +13,8 @@ export const project = {
       <Link className="no-underline" href={'/projects/custom-business-phone'}>
         <div className="bg-sky-900 rounded-lg p-2 flex justify-center">
           <p className="text-sky-200">
-            Haven&apos;t read the first part of this project? Click here to read it!
+            Haven&apos;t read the first part of this project? Click here to read
+            it!
           </p>
         </div>
       </Link>
@@ -40,21 +41,21 @@ export const project = {
       <p>
         To allow for extended wait times, I implemented a call queue system.
         Rather than the original system, that simply attempted to forward the
-        call to my wife or I (&quot;agents&quot;). This also allowed for more flexibility
-        in how we handle calls in the future. For example, this allowed me to
-        add an admin feature in the &quot;call received&quot; email with a{' '}
-        <code>tel:</code> link to automatically allow an admin to connect with
-        the caller in the queue.
+        call to my wife or I (&quot;agents&quot;). This also allowed for more
+        flexibility in how we handle calls in the future. For example, this
+        allowed me to add an admin feature in the &quot;call received&quot;
+        email with a <code>tel:</code> link to automatically allow an admin to
+        connect with the caller in the queue.
       </p>
       <p>
-        As for the &quot;who is calling?&quot; question, the fix I implemented was to have
-        the caller record their name before being put in the queue. This allowed
-        me to be able to transcribe the recording and display the name of the
-        caller in the &quot;call received&quot; email. The caller&apos;s name is also played to
-        the agent with an option to ignore the call or answer it. This allows
-        the agent to know who is calling and decide if they want to answer the
-        call or not. As you can see in the image below, the name and number of
-        who is calling is now in the email!
+        As for the &quot;who is calling?&quot; question, the fix I implemented
+        was to have the caller record their name before being put in the queue.
+        This allowed me to be able to transcribe the recording and display the
+        name of the caller in the &quot;call received&quot; email. The
+        caller&apos;s name is also played to the agent with an option to ignore
+        the call or answer it. This allows the agent to know who is calling and
+        decide if they want to answer the call or not. As you can see in the
+        image below, the name and number of who is calling is now in the email!
       </p>
       <Image
         alt="call received email example"
@@ -66,13 +67,13 @@ export const project = {
       <p>
         The link in the image above is as follows:{' '}
         <code>tel:+1405*******,3</code>. As discussed in the{' '}
-        <Link href="/projects/custom-business-phone/#agent-call">
+        <Link href="/projects/custom-business-phone#agent-call">
           previous project
         </Link>
-        , the business phone keeps record of when an &quot;agent&quot; is calling and when
-        a customer is calling. The link in the email will call the business
-        phone. The <code>,3</code> will pause 3 seconds then dial 3, which is a
-        new option to pick up the oldest caller in the call queue.
+        , the business phone keeps record of when an &quot;agent&quot; is
+        calling and when a customer is calling. The link in the email will call
+        the business phone. The <code>,3</code> will pause 3 seconds then dial
+        3, which is a new option to pick up the oldest caller in the call queue.
       </p>
       <p>
         This UX is vastly improved from the original system in the following
@@ -87,8 +88,8 @@ export const project = {
         </li>
         <li>
           The customer call and the call to the agents are now separated. So
-          there&apos;s no risk of one of the agents ignoring the call and sending the
-          customer to voicemail.
+          there&apos;s no risk of one of the agents ignoring the call and
+          sending the customer to voicemail.
         </li>
         <li>
           The admin can connect with the caller in the queue as long as the
@@ -188,14 +189,14 @@ export const project = {
         <li>
           Line 13: Play the wait music.{' '}
           <span className="font-bold">
-            It&apos;s crucial here to note that the <code>.play()</code> is being
-            called on the return of the <code>gather</code>.
+            It&apos;s crucial here to note that the <code>.play()</code> is
+            being called on the return of the <code>gather</code>.
           </span>{' '}
           Using the return of the <code>gather</code>, it allows us to
           concurrently play the wait music while listening for an input from the
           caller. If you used the <code>response</code> object, it would do them
-          sequentially. This is called &quot;verb nesting&quot; in Twilio terms. Read more
-          about it{' '}
+          sequentially. This is called &quot;verb nesting&quot; in Twilio terms.
+          Read more about it{' '}
           <Link
             target="_blank"
             href="https://www.twilio.com/docs/voice/twiml/gather#nest-other-verbs"
@@ -213,9 +214,10 @@ export const project = {
         </line>
       </ol>
       <p>
-        So, simply put, when you&apos;re constructing a <code>TwimlResponse</code>,
-        you&apos;re essentially building a list of actions that Twilio will perform
-        in order. I&apos;m not sure why I didn&apos;t understand this at first.
+        So, simply put, when you&apos;re constructing a{' '}
+        <code>TwimlResponse</code>, you&apos;re essentially building a list of
+        actions that Twilio will perform in order. I&apos;m not sure why I
+        didn&apos;t understand this at first.
       </p>
       <h3>Dialing an agent</h3>
       <p>
@@ -224,10 +226,10 @@ export const project = {
         <code>TwimlResponse</code> object and do a <code>dial</code> to each
         agent. The problem with this is, as mentioned above, the response object
         is a list of steps for Twilio to execute, in order. So if instead on
-        line 35, I called <code>response.dial()</code>, I&apos;m essentially telling
-        twilio to dial the agents after doing all of the other steps that
-        preceeded it in the response. The was resulting in the agent calls not
-        being placed until after the music had played.
+        line 35, I called <code>response.dial()</code>, I&apos;m essentially
+        telling twilio to dial the agents after doing all of the other steps
+        that preceeded it in the response. The was resulting in the agent calls
+        not being placed until after the music had played.
       </p>
       <p>
         The solution, which in hindsight is a forehead slapper, was to just use

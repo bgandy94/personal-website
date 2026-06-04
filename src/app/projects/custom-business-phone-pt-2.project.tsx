@@ -40,7 +40,7 @@ export const project = {
       <h4 className="font-bold">Call Queues</h4>
       <p>
         To allow for extended wait times, I implemented a call queue system.
-        Rather than the original system, that simply attempted to forward the
+        Contrast to the original system, that simply attempted to forward the
         call to my wife or I (&quot;agents&quot;). This also allowed for more
         flexibility in how we handle calls in the future. For example, this
         allowed me to add an admin feature in the &quot;call received&quot;
